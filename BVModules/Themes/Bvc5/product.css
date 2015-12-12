@@ -1,0 +1,36 @@
+﻿
+/* Product Reviews */
+#ProductReviews, #ProductReviewNew {margin: 20px 0 10px 10px;clear: both;}
+#ProductReviews h3 {background-position:center bottom;padding-right:3px;padding-left:3px;padding-bottom:12px;padding-top:5px;margin:0;font:bold 13px Arial, Verdana, Sans-Serif;color:#fff;background-repeat:no-repeat;text-align:center;}
+#ProductReviews a {font:12px/14px Arial, Verdana, Sans-Serif;}
+.ProductReviewRating {font:12px/14px Arial, Verdana, Sans-Serif;}
+.ProductReview {font: 12px/14px Arial, Verdana, Sans-Serif;	margin: 10px;}
+.ProductReviewKarma {font: 11px/12px Arial, Verdana, Sans-Serif;color:#666;}
+
+/* BVC 2004 Product Page Template */
+#bvc2004productpage #menucolumn {float:left;width:175px;vertical-align:top;text-align:left;}
+#bvc2004productpage #imagecolumn {float:left;width:240px;vertical-align:top;text-align:center;}
+#bvc2004productpage #contentcolumn {float:left; width:355px; margin:0 0 0 5px;}
+
+/* BVC 5 Product Page Template */
+#bvc5productpage #contentcolumn {float:left;width:370px; margin: 0 0 0 10px;vertical-align:top;text-align:left;}
+#bvc5productpage #actioncolumn {float:left; width:370px; margin:0 10px;vertical-align:top; text-align:left;}
+#bvc5productpage #ProductReviews {float:none;}
+
+.listprice, .ListPrice {text-decoration: line-through; color:#999;}
+.siteprice, .SitePrice {font-weight:bold;}
+.yousave, .YouSave {color:#999;}
+
+/* Choices And Inputs */
+td.choicelabel { vertical-align: top; }
+span.choicelabel { display: block; margin: 9px 0 0 0; float: right; }
+
+.radiobuttonnormallist ul {margin:0;}
+.radiobuttonnormallist li {display: inline; list-style: none;}
+.radiobuttonnormallist ul ul {padding:0; margin: 5px 0px; font-size: 11px; }
+.radiobuttonnormallist ul .rblist {margin-left: 7px;}
+
+.suggesteditemstitle {margin-bottom: 5px; display: inline;}
+.suggestedimage { margin-top: 10px;}
+.suggestedname {margin-top: 10px;}
+

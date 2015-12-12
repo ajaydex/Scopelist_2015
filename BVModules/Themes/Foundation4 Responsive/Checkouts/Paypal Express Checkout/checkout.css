@@ -1,0 +1,627 @@
+#PayPalExpressCheckout .pad10 {
+	overflow: hidden;
+    padding: 10px;	
+}
+
+#PayPalExpressCheckout {
+	font-size: 14px;
+}
+
+#PayPalExpressCheckout p.shiptoAddress {
+    line-height: 1.4 !important;
+}
+#PayPalExpressCheckout p.shiptoAddress select {
+    width:auto;
+}
+
+#PayPalExpressCheckout * {
+	line-height: 1.0 !important;
+}
+#PayPalExpressCheckout .checkoutStep {
+	position: relative;
+	margin-bottom: 20px;
+}
+#PayPalExpressCheckout .checkoutStep * {font-size:13px!important;}
+#PayPalExpressCheckout .checkoutStep h2 {
+	border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+	line-height: 1.8 !important;
+    color: red;
+    font-size: 2em!important;
+}
+#PayPalExpressCheckout .checkoutStep h3 {
+    font-size: 1.8em!important;
+}
+
+#PayPalExpressCheckout .checkoutStep .checkoutInstructions {
+    margin-top:1em;
+}
+#PayPalExpressCheckout .checkoutStep .checkoutFieldColumn1 {
+	width: 49%;
+	float: left;
+}
+#PayPalExpressCheckout .checkoutStep .checkoutFieldColumn2 {
+	width: 49%;
+	float: left;
+}
+#PayPalExpressCheckout .checkoutStep .checkoutField {
+	padding-bottom: 10px;
+	min-height: 50px;
+}
+#PayPalExpressCheckout .checkoutStep .checkoutField.state {
+	float: left;
+	padding-right: 10px;
+}
+#PayPalExpressCheckout .checkoutStep .checkoutField.zip {
+	float: left;	
+}
+
+#PayPalExpressCheckout .clear {
+	clear: both;
+}
+
+
+
+/*all steps*/
+
+
+
+
+/*error message summary*/
+#PayPalExpressCheckout div.errormessage ul {
+    display: none;
+}
+
+/*client side validation messages*/
+#PayPalExpressCheckout .validationMsg {
+	padding: 4px;
+	width: 90%;
+	background: #ffeae8; 
+	color: #f06355;
+	border: 1px solid #f06355;
+	margin-top: 1px;
+}
+#PayPalExpressCheckout .validationMsg div {
+	padding: 6px;
+	line-height: 1.2 !important;
+	font-size: 11px;
+}
+
+/*error styles*/
+#PayPalExpressCheckout .error {
+	color: #f06355 !important;	
+	text-transform: none;
+}
+#PayPalExpressCheckout input[type="text"].error,
+#PayPalExpressCheckout input[type="password"].error {
+    border: 1px solid #f06355;
+}
+#PayPalExpressCheckout select.error {
+    border: 1px solid #f06355;
+    color: #000;
+}
+
+
+#PayPalExpressCheckout .checkoutStep .checkoutFieldColumn1 label,
+#PayPalExpressCheckout .checkoutStep .checkoutFieldColumn2 label,
+#PayPalExpressCheckout .label {
+	display: block;
+	font-weight: normal!important;
+	margin: 0 0 5px;
+	font-size: 14px;
+	color: #666666;
+}
+#PayPalExpressCheckout .checkoutStep label.required,
+#PayPalExpressCheckout .checkoutStep .required {
+	font-weight: bold!important;
+}
+#PayPalExpressCheckout table {
+	width: 100% !important;	
+}
+#PayPalExpressCheckout table td {
+	vertical-align: middle;	
+	padding: 0 !important; 
+}
+
+
+/*ADDRESS BOOK*/
+#PayPalExpressCheckout .addressbookpanel {
+	margin-bottom: 30px;	
+	position: relative;
+}
+#PayPalExpressCheckout .addressbookpanel > span {
+	/*BUTTON*/
+	display: block;
+	height: 26px;
+	overflow: hidden;
+}
+#PayPalExpressCheckout .addressbookpanel span input.addressBookButton {
+	width: 182px;
+	height: 52px;
+}
+#PayPalExpressCheckout .addressbookpanel span input.addressBookButtonActive {
+	margin-top: -26px;
+}
+#PayPalExpressCheckout .addressbookpanel div {
+	/*ADDRESS PANEL*/
+	position: absolute;
+	left: 31px; 
+	top: 26px;
+	-moz-box-shadow: 0 2px 6px #666;
+	-webkit-box-shadow: 0 2px 6px #666;
+	box-shadow: 0 2px 6px #666;
+	max-width: 450px;
+	background: #f5f5f5;
+}
+#PayPalExpressCheckout .addressbookpanel div span .closeBtn {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+#PayPalExpressCheckout ul.addressBook {
+	list-style: none;
+	margin: 25px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	max-height: 200px;
+	overflow: auto;
+	max-width: 450px;
+}
+#PayPalExpressCheckout ul.addressBook li {
+	margin: 5px;
+	padding: 0;
+}
+#PayPalExpressCheckout ul.addressBook li p {
+	margin: 0!important;
+	padding: 0!important;
+}
+#PayPalExpressCheckout ul.addressBook li a {
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+	background: #dcf0f8;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size: 12px;
+	line-height: 16px!important;
+}
+#PayPalExpressCheckout ul.addressBook li a strong {
+	font-weight: bold;	
+}
+#PayPalExpressCheckout ul.addressBook li a:hover {
+	background: #aee1f6;
+	color: black;
+}
+
+
+
+
+/*particular steps*/
+
+/*SHIPPING ADDRESS & METHOD*/
+#PayPalExpressCheckout .stepShippingAddress {
+
+}
+#PayPalExpressCheckout .stepShippingAddress {
+	
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod {
+	clear: both;
+	overflow:hidden;
+	padding-top: 20px;
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod table {
+	margin-bottom: 10px;	
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod table td {
+	vertical-align: middle;	
+	padding: 0 0 !important;
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod table td input {
+	margin: 4px;	
+	float: left;
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod table td label {
+	margin-bottom: 0 !important;
+	line-height: 22px !important;
+	float: left;
+}
+#PayPalExpressCheckout .stepShippingAddress .shippingMethod a.shippingterms {
+	font-size: 12px;
+	line-height: 18px !important;	
+}	
+
+/*BILLING ADDRESS*/
+#PayPalExpressCheckout .stepBillingAddress {
+	
+}
+
+/*PAYMENT METHOD*/
+#PayPalExpressCheckout .stepPayemntMethod {
+	
+}
+#PayPalExpressCheckout .stepPayemntMethod table {
+	
+}
+#PayPalExpressCheckout .stepPayemntMethod table td {
+	font-weight: normal;
+	padding: 13px 0 15px !important;
+	border-bottom: 1px dotted #CCC;
+}
+#PayPalExpressCheckout .stepPayemntMethod table tr:last-child td {
+    border: none;
+}
+#PayPalExpressCheckout .stepPayemntMethod table td + td {
+	padding: 15px 0 15px !important;
+}
+#PayPalExpressCheckout .stepPayemntMethod table td.radiobuttoncol {
+	
+}
+#PayPalExpressCheckout .stepPayemntMethod table td.radiobuttoncol > input {
+    margin-bottom: 0;
+}
+#PayPalExpressCheckout .stepPayemntMethod table td.radiobuttoncol > label {
+	
+}
+
+/*credit card info*/
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table {
+	width: 100% !Important;	
+	background: #FAFAFA;
+	border: 1px solid silver;
+	border-bottom: none;
+    margin-top: 15px;
+}
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table td {
+	padding: 5px !important;	
+	border-bottom: 1px solid silver;
+}	
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table td.formlabel {
+	vertical-align: top;
+	width: 110px;
+	padding-left: 10px !important;	
+}
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table td.formlabel label {
+	display: block;
+	line-height: 26px !important;
+	display: block;
+}
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table td input,
+#PayPalExpressCheckout .stepPayemntMethod table td div.creditcardinput table td select {
+	background: #fff !Important;	
+}
+#PayPalExpressCheckout select.error,
+#PayPalExpressCheckout input.error {
+	color: #444444!important;
+}
+#PayPalExpressCheckout .creditCards {
+	margin-top: 5px;
+}
+#PayPalExpressCheckout .creditCards img {
+	width: 40px;
+	margin: 1px;
+}
+#PayPalExpressCheckout .creditCards img:hover {
+	cursor: pointer;
+}
+#PayPalExpressCheckout .creditCards img.selected {}
+#PayPalExpressCheckout .creditCards img.notSelected {
+	opacity: .2;	
+}
+#PayPalExpressCheckout .creditCards img.notSelected:hover {
+	opacity: 1.0;	
+}
+#PayPalExpressCheckout .creditcardinput table td.formfield {
+    white-space:normal;
+}
+
+/*REDEEM A GIFT CERTIFICATE*/
+/*GIFT CERTIFICATE CONTROL - STOCK*/
+#PayPalExpressCheckout .giftcertificates {
+		
+}
+#PayPalExpressCheckout table.giftcertificates {
+
+}
+#PayPalExpressCheckout table.giftcertificates td {
+	padding-bottom: 4px !important;	
+}
+#PayPalExpressCheckout table.giftcertificates td input[type=text] {
+	margin-bottom: 0;
+}
+#PayPalExpressCheckout table.giftcertificates td table {
+	margin-top: 15px;
+}
+#PayPalExpressCheckout table.giftcertificates td table th {
+	padding: 10px;
+	text-align: left !important;	
+	display: none!important;
+}
+#PayPalExpressCheckout table.giftcertificates td table td {
+	padding: 10px !important;
+	vertical-align: middle;	
+	background: #dbeff8;
+	background: -moz-linear-gradient(top,  #dbeff8 0%, #eef9fe 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbeff8), color-stop(100%,#eef9fe));
+	background: -webkit-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -o-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -ms-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbeff8', endColorstr='#eef9fe',GradientType=0 );
+
+}
+#PayPalExpressCheckout table.giftcertificates td table td input {
+	float: right;	
+}
+
+	/*ideal markup*/
+	/*
+	#PayPalExpressCheckout .stepGiftCertificate label {
+		float: left;
+		width: 25%;
+		line-height: 25px!important;
+		margin: 0;
+	}
+	#PayPalExpressCheckout .stepGiftCertificate input.text {
+		float: left;
+		width: 25%!important;
+	}
+	#PayPalExpressCheckout .stepGiftCertificate input.button {
+		float: left;
+		background: #777777;
+		border: none;
+		color: #fff;
+		font-weight: bold;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		font-size: 13px;
+		line-height: 26px;
+		padding: 4px 10px 4px 7px;
+		margin: 0 0 0 4px;
+	}
+	*/
+	
+
+/*PROMOTION CODE*/
+#PayPalExpressCheckout .stepPromotionCode {
+	
+}
+#PayPalExpressCheckout .stepPromotionCode table.promotions  {
+	width: 90% !important;
+	margin-top: 15px;
+}
+#PayPalExpressCheckout .stepPromotionCode table.promotions  td {
+	padding: 10px !important;
+	vertical-align: middle;	
+	background: #dbeff8;
+	background: -moz-linear-gradient(top,  #dbeff8 0%, #eef9fe 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbeff8), color-stop(100%,#eef9fe));
+	background: -webkit-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -o-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -ms-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbeff8', endColorstr='#eef9fe',GradientType=0 );
+	border-top: 10px solid #fff !important;
+	border-bottom: 10px solid #fff !important;
+}
+#PayPalExpressCheckout .stepPromotionCode table.promotions  td input {
+	float: right;	
+}
+	/*ideal markup*/
+	#PayPalExpressCheckout .stepPromotionCode label {
+		float: left;
+		width: 25%;
+		line-height: 25px!important;
+		margin: 0;
+		padding: 0 !important;
+	}
+	#PayPalExpressCheckout .stepPromotionCode input.text {
+		float: left;
+		width: 25%!important;
+		margin-right: 4px;
+	}
+	#PayPalExpressCheckout .stepPromotionCode input.button {
+		float: left;
+		background: #777777;
+		border: none;
+		color: #fff;
+		font-weight: bold;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		font-size: 13px;
+		line-height: 26px;
+		padding: 4px 10px 4px 7px;
+		margin: 0 0 0 4px;
+	}
+
+
+/*CREATE YOUR ACCOUNT*/
+#PayPalExpressCheckout .stepCreateAccount {
+	
+}
+#PayPalExpressCheckout .stepCreateAccount .checkoutField {
+	min-height: 35px;
+}
+#PayPalExpressCheckout .stepCreateAccount div {
+	overflow: hidden;	
+}
+#PayPalExpressCheckout .stepCreateAccount div label {
+	float: left;
+	line-height: 1.9!important;
+}
+#PayPalExpressCheckout .stepCreateAccount div input {
+	float: left;
+	margin-right: 4px;
+}
+#PayPalExpressCheckout .stepCreateAccount div span.error {
+	float: left;
+	font-size: 12px;
+	line-height: 1.9!important;	
+}
+
+
+
+/*PLEASE REVIEW YOUR ORDER*/
+#PayPalExpressCheckout .stepReview {
+	/*border-bottom: 1px solid #bebebe;*/
+	padding-bottom: 20px;
+}
+#PayPalExpressCheckout .checkoutStep.stepReview h2 {
+	
+}
+#PayPalExpressCheckout .stepReview .reviewInstructions {
+	margin: 15px 0 20px;
+}
+specialInstructions
+#PayPalExpressCheckout .stepReview table.ReviewTable {
+		
+}
+#PayPalExpressCheckout .stepReview table#ReviewTable table.itemTable {
+	margin-bottom: 30px;
+	
+}
+#PayPalExpressCheckout .stepReview table#ReviewTable table.itemTable tr.rowheader th {
+	text-align: left;
+	color: #333;
+	background: #CCC;
+	padding: 10px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr.tdrow td,
+#PayPalExpressCheckout .stepReview table.itemTable tr.altrow td {
+	text-align: left;
+	color: #525252;
+	background: #fff;
+	border-bottom: 1px solid #ddd!important;
+	padding: 0 !important;
+	font-size: 12px;
+	vertical-align: top;
+	overflow: auto;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr .lineitemnodiscounts {
+    text-decoration: line-through;
+}
+
+
+#PayPalExpressCheckout .stepReview table.itemTable tr td.image img {
+	width: 65px;
+    border: 1px solid #ddd!important;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr td.image div.pad10 {float:left;}
+#PayPalExpressCheckout .stepReview table.itemTable tr td.one {
+	width: 60%;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr td.two {
+	width: 10%;
+}
+#PayPalExpressCheckout .stepReview table#ReviewTable table.itemTable tr td.three {
+	width: 13%;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr td.four {
+	width: 15%;
+}
+#PayPalExpressCheckout .stepReview table.itemTable tr td span {
+	display: block;
+	line-height: 1.3 !important;
+}
+#PayPalExpressCheckout .stepReview td.accentBg {
+	width: 65%;	
+}
+#PayPalExpressCheckout .stepReview label {
+	font-weight: bold;	
+}
+#PayPalExpressCheckout .stepReview textarea {
+	margin-top: 5px;	
+}
+#PayPalExpressCheckout .stepReview .totals {
+}
+#PayPalExpressCheckout .stepReview .totals table {
+	margin: 15px 0;
+    background: #fafafa;
+}
+#PayPalExpressCheckout .stepReview .totals table tr {
+	background: none;	
+}
+#PayPalExpressCheckout .stepReview .totals table tr td {border-bottom: 1px solid #ddd;}
+#PayPalExpressCheckout .stepReview .totals table tr.grandtotal td {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+#PayPalExpressCheckout .stepReview .totals table td {
+	padding: 10px !important;
+	background: none;
+}
+#PayPalExpressCheckout .stepReview table#ReviewTable td textarea.specialInstructions {
+	min-height: 150px;
+}
+
+
+/*NEWSLETTER SIGNUP*/
+#PayPalExpressCheckout .stepMailingList {
+	
+}
+
+#PayPalExpressCheckout .stepMailingList div div {
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+#PayPalExpressCheckout .stepMailingList input[type="checkbox"] {
+    float:left; 
+    margin-right: 3px;
+}
+#PayPalExpressCheckout .stepMailingList label {
+    float:left; 
+    width: 85%;
+    line-height: 1.2!important;
+    font-weight:normal;
+}
+#PayPalExpressCheckout .stepMailingList .required label {
+    font-weight:bold;
+}
+#PayPalExpressCheckout .stepMailingList div a.viewSiteTerms {
+	font-weight: normal;
+    display:block;
+    line-height: 1.4!important;
+}
+
+
+/*INSTRUCTIONAL TEXT*/
+#PayPalExpressCheckout .reviewInstructions,
+#PayPalExpressCheckout .checkoutInstructions {
+	font-size: 12px;
+	line-height: 18px!important;
+	color: #525252 !important;
+}
+#PayPalExpressCheckout .checkoutInstructions .error label {
+	color: #F06355;
+}
+
+
+/*--------------------REVIEW INSTRUCTIONS------------------*/
+/* OVERRIDE HTML ELEMENTS IN THE CHECKOUTINSTRUCTIONS */
+
+/*if you are using html in your checkout instructions you may need to override sitewide styles for those elements here.*/
+#PayPalExpressCheckout .reviewInstructions p,
+#PayPalExpressCheckout .checkoutInstructions p {
+	font-size: 12px;
+	line-height: 18px!important;
+	color: #525252 !important;
+}
+
+#PayPalExpressCheckout .reviewInstructions h6,
+#PayPalExpressCheckout .checkoutInstructions h6 {
+	margin: 1em 0;	
+}
+
+.prefooter, .footer {display:none;}
+.alignright {
+    text-align:right;
+}
+

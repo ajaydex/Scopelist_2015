@@ -1,0 +1,2 @@
+<%@ Control Language="VB" AutoEventWireup="false" CodeFile="CategoryBreadCrumbTrail.ascx.vb" Inherits="BVModules_Controls_CategoryBreadCrumbTrail" %>
+<%-- all HTML is now rendered from code-behind --%>

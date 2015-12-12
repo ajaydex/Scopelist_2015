@@ -1,0 +1,38 @@
+<%@ Master Language="VB" CodeFile="Default.master.vb" Inherits="BVModules_Themes_Bvc2013_Default" %>
+<%@ Register Src="./controls/Header.ascx" TagName="Header" TagPrefix="uc" %>
+<%@ Register Src="./controls/Footer.ascx" TagName="Footer" TagPrefix="uc" %>
+<%@ Register Src="~/BVModules/Controls/AdminPanel.ascx" TagName="AdminPanel" TagPrefix="uc" %>
+<%@ Register src="~/BVModules/Controls/AnalyticsTags.ascx" tagname="AnalyticsTags" tagprefix="uc" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+	<title>Home</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9; IE=EmulateIE10" />
+	<meta name="Keywords" id="MetaKeywords" runat="server" />
+	<meta name="Description" id="MetaDescription" runat="server" />
+	<link href="./styles/styles.css" rel="stylesheet" type="text/css" />
+	<asp:ContentPlaceHolder ID="headcontent" runat="server"></asp:ContentPlaceHolder>
+		
+	<link href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<form id="form1" runat="server">
+		<uc:AdminPanel ID="AdminPanel1" runat="server" />
+				
+		<uc:Header ID="Header2" runat="server" />
+			
+		<div class="content">
+			<div class="container clearfix">
+				<asp:ContentPlaceHolder ID="MainContentHolder" runat="server" />
+			</div>
+		</div>
+			
+		<uc:Footer ID="Footer1" runat="server" />
+			
+		<asp:ContentPlaceHolder ID="EndOfForm" runat="Server">
+			<uc:AnalyticsTags ID="AnalyticsTags1" runat="server" />        
+		</asp:ContentPlaceHolder>
+	</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<%@ Master Language="VB" CodeFile="Closed.master.vb" Inherits="BVModules_Themes_OpticAuthority_Closed" %>
+<%@ Register Src="~/BVModules/Controls/AdminPanel.ascx" TagName="AdminPanel" TagPrefix="uc3" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Home</title>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />
+    <meta name="Keywords" id="MetaKeywords" runat="server" />
+    <meta name="Description" id="MetaDescription" runat="server" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <uc3:AdminPanel ID="AdminPanel1" runat="server"></uc3:AdminPanel>
+        <asp:ContentPlaceHolder ID="MainContentHolder" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

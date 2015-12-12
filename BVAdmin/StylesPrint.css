@@ -1,0 +1,13 @@
+﻿body {font-size:12px;}
+
+.creditcardnumber {display:none;}
+.printwindow {overflow: visible;border:none;padding:0;}
+.printhidden {display:none;}
+.print-full-width {width:100%!important;}
+table td,
+table th {}
+
+.f-row {width:auto;}
+
+/*overwrite Foundation css so Chrome prints page-breaks*/
+.column, .columns {float:none;}

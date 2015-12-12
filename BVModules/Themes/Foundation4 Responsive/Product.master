@@ -1,0 +1,84 @@
+﻿<%@ Master Language="VB" CodeFile="Product.master.vb" Inherits="BVModules_Themes_Foundation4_Responsive_Product" %>
+<%@ Register Src="./controls/Header.ascx" TagName="Header" TagPrefix="uc" %>
+<%@ Register Src="./controls/Footer.ascx" TagName="Footer" TagPrefix="uc" %>
+<%@ Register Src="~/BVModules/Controls/AdminPanel.ascx" TagName="AdminPanel" TagPrefix="uc" %>
+<%@ Register Src="~/BVModules/Controls/ContentColumnControl.ascx" TagName="ContentColumnControl" TagPrefix="uc" %>
+<%@ Register src="~/BVModules/Controls/AnalyticsTags.ascx" TagName="AnalyticsTags" tagprefix="uc" %>
+<%@ Register Src="~/BVModules/Controls/MessageBox.ascx" TagName="MessageBox" TagPrefix="uc" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head id="Head1" runat="server">
+		<title>Home</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="Keywords" id="MetaKeywords" enableviewstate="false" runat="server">
+		<meta name="Description" id="MetaDescription" enableviewstate="false" runat="server">
+
+        <%-- ADOBE EDGE WEB FONT --%>
+        <script src="//use.edgefonts.net/kaffeesatz:n1,n3,n4,n7:all.js"></script>
+
+        <%-- MODERNIZER --%>
+		<bvc5:HtmlScript src="~/BVModules/Themes/Foundation4 Responsive/foundation4/js/vendor/custom.modernizr.js" EnableViewState="false" runat="server"></bvc5:HtmlScript>
+
+		<%-- FOUNDATION 4 CSS --%>
+        <bvc5:HtmlLink href="~/BVModules/Themes/Foundation4 Responsive/foundation4/css/normalize.css" rel="stylesheet" EnableViewState="false" runat="server">
+        <bvc5:HtmlLink href="~/BVModules/Themes/Foundation4 Responsive/foundation4/css/foundation.min.css" rel="stylesheet" EnableViewState="false" runat="server">
+
+        <%-- JQUERY %>--%>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+
+        <bvc5:HtmlScript src="~/BVModules/Themes/Foundation4 Responsive/foundation4/js/foundation.min.js" EnableViewState="false" runat="server"></bvc5:HtmlScript>
+        <bvc5:HtmlScript src="~/BVModules/Themes/Foundation4 Responsive/foundation4/js/foundation/foundation.forms.js" EnableViewState="false" runat="server"></bvc5:HtmlScript>
+
+        <%-- THEME SPECIFIC JS - always call this before instantiating foundation() --%>
+        <bvc5:HtmlScript src="~/BVModules/Themes/Foundation4 Responsive/scripts/app.js" EnableViewState="false" runat="server"></bvc5:HtmlScript>
+
+        <script>
+            $(document).ready(function () {
+                $(document).foundation();
+            });
+        </script>
+
+        <%-- FONTAWSOME --%>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        
+        <%-- WEBICONS - http://zurb.com/playground/social-webicons --%>
+        <bvc5:HtmlLink href="~/BVModules/Themes/Foundation4 Responsive/styles/webicons.css" rel="stylesheet" EnableViewState="false" runat="server">
+
+        <%-- THEME STYLES --%>
+		<bvc5:HtmlLink href="~/BVModules/Themes/Foundation4 Responsive/styles/styles.css" rel="stylesheet" EnableViewState="false" runat="server">
+
+        <%-- IE --%>
+        <!--[if lt IE 9]>
+            <%-- for some reason respond has to come before styles.ie.css or ie will have a js error --%>
+            <bvc5:HtmlScript src="~/BVModules/Themes/Foundation4 Responsive/scripts/respond-master/dest/respond.src.js" EnableViewState="false" runat="server"></bvc5:HtmlScript>
+            <bvc5:HtmlLink href="~/BVModules/Themes/Foundation4 Responsive/styles/styles-ie.css" rel="stylesheet" EnableViewState="false" runat="server">
+        <![endif]-->
+
+		<asp:ContentPlaceHolder ID="headcontent" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <body>
+	    <form id="form1" runat="server">
+
+            <uc:AdminPanel ID="AdminPanel1" runat="server" />
+
+			<uc:Header ID="Header1" runat="server" />
+
+            <div class="main">
+                <div class="row">
+				    <div class="large-12 columns">
+                        <uc:MessageBox ID="MessageBox1" runat="server" EnableViewState="False" />
+					    <asp:ContentPlaceHolder ID="MainContentHolder" runat="server" />
+				    </div>
+			    </div>
+            </div>
+
+            <uc:Footer ID="Footer1" runat="server" />
+
+		    <asp:ContentPlaceHolder ID="EndOfForm" runat="Server">
+			    <uc:AnalyticsTags ID="AnalyticsTags1" runat="server" />        
+		    </asp:ContentPlaceHolder>
+	    </form>
+    </body>
+</html>

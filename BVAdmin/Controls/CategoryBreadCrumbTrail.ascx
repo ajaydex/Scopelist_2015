@@ -1,0 +1,2 @@
+<%@ Control Language="VB" AutoEventWireup="false" CodeFile="CategoryBreadCrumbTrail.ascx.vb" Inherits="BVAdmin_Controls_CategoryBreadCrumbTrail" %>
+<div class="breadcrumbs"><div class="links"><asp:PlaceHolder id="TrailPlaceholder" runat="server"></asp:PlaceHolder></div></div>

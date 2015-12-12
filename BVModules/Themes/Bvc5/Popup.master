@@ -1,0 +1,22 @@
+<%@ Master Language="VB" CodeFile="Popup.master.vb" Inherits="BVC2007_Popup" %>
+<%@ Register src="../../Controls/AnalyticsTags.ascx" tagname="AnalyticsTags" tagprefix="uc4" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>BVC 2007</title>
+    <link rel="stylesheet" type="text/css" href="Styles.css" />
+    <meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />
+    <asp:ContentPlaceHolder ID="headcontent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="popupContainer">
+        <asp:contentplaceholder id="BvcPopupContentPlaceholder" runat="server">
+        </asp:contentplaceholder>
+    </div>
+    <asp:ContentPlaceHolder ID="EndOfForm" runat="Server">
+            <uc4:AnalyticsTags ID="AnalyticsTags1" runat="server" />            
+	    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

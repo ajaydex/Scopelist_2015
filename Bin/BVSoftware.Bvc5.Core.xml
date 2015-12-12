@@ -1,0 +1,412 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+BVSoftware.Bvc5.Core
+</name>
+</assembly>
+<members>
+<member name="M:BVSoftware.Bvc5.Core.Utilities.Translators.DataTableToArray(System.Data.DataTable)">
+	<summary>
+ Converts a single column DataTable into an Array of Strings
+ </summary>
+	<param name="dt"></param>
+	<returns></returns>
+</member><member name="T:BVSoftware.Bvc5.Core.Catalog.CategorySourceType">
+-----------------------------------------------------------------------------
+ Project		: BVSoftware.Bvc5.Core
+ Enum		: CategorySourceType
+
+-----------------------------------------------------------------------------
+ <summary>
+ Used to determine how categories find products that belong to them
+ </summary>
+	<remarks></remarks>
+	<history>
+ 	[mmcconnell] 	9/01/2005	Created
+ </history>
+-----------------------------------------------------------------------------
+
+</member><member name="T:BVSoftware.Bvc5.Core.Content.Country.Mapper">
+	<summary>
+ Handles Data Storage for Countries
+ </summary>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.ReferralId">
+	<summary>
+ Holds a numeric referral id number passed to the web site 
+ through a query string to track referrals
+ </summary>
+	<value></value>
+	<remarks>BV Commerce 2 used the database generated ID number but 
+ this version uses a merchant defined number instead</remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.DisplayName">
+	<summary>
+ The display name of the affiliate for administration pages
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.Address">
+	<summary>
+ Contact address for the affiliate
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.CommissionAmount">
+	<summary>
+ The amount of commission paid per sale in either percentage or currency amount
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.CommissionType">
+	<summary>
+ Determines whether CommissionAmount is a percentage or currency amount
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.ReferralDays">
+	<summary>
+ Records how many days a referral remains active for. If a customer leaves 
+ the web site and returns before the referral days has expired, the affiliate 
+ will get sale credit if the customer purchases
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.TaxId">
+	<summary>
+ Local tax identification number for tax reporting purposes
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.DriversLicenseNumber">
+	<summary>
+ Drivers license number for identification or tax reporting purposes
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.WebSiteUrl">
+	<summary>
+ The web URL of the affiliate's web site
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Contacts.Affiliate.CustomThemeName">
+	<summary>
+ if set to nothing, affiliate referred customers see the normal 
+ site theme. If set to an available theme, affiliate referred 
+ customers will see the named theme instead.
+ </summary>
+	<value></value>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.FindByBvin(System.String)">
+	<summary>
+ Finds a single affiliate by ID number
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.FindByReferralId(System.String)">
+	<summary>
+ Find a single affiliate by affiliate referral code
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.ConvertDataRow(System.Data.DataRow)">
+	<summary>
+ Converts a datarow to an Affiliate
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.Insert(BVSoftware.Bvc5.Core.Contacts.Affiliate)">
+	<summary>
+ Creates a new affiliate
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.Update(BVSoftware.Bvc5.Core.Contacts.Affiliate)">
+	<summary>
+ Updates or Create an Affiliate Record
+ </summary>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.Delete(System.String)">
+	<summary>
+ Deletes and Affiliate
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Contacts.Affiliate.Mapper.FindAll">
+	<summary>
+ Finds all Affiliates
+ </summary>
+</member><member name="T:BVSoftware.Bvc5.Core.Contacts.Affiliate">
+	<summary>
+ Holds an instance of affiliate data. Affiliates are 
+ contacts for the referral/affiliate tracking feature.
+ </summary>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.Conversions.InchesToCentimeters(System.Decimal)">
+	<summary>
+ Converts inches to centimeters
+ </summary>
+	<param name="inches">Inches to convert</param>
+	<returns>Inches converted to centimeters</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.Conversions.CentimetersToInches(System.Decimal)">
+	<summary>
+ Converts centimeters to inches
+ </summary>
+	<param name="centimeters">Centimeters to convert</param>
+	<returns>Centimeters converted to inches</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.Conversions.PoundsToKilograms(System.Decimal)">
+	<summary>
+ Converts pounds to kilograms
+ </summary>
+	<param name="pounds">Pound amount to convert</param>
+	<returns>Pounds converted to Kilograms</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.Conversions.KilogramsToPounds(System.Decimal)">
+	<summary>
+ Converts Kilograms to Pounds		
+ </summary>
+	<param name="kilograms">Kilogram amount to convert</param>
+	<returns>Kilograms converted to pounds</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.Conversions.DecimalPoundsToOunces(System.Decimal)">
+	<summary>
+ Converts the non-whole pounds portion of a decial number to ounces
+ </summary>
+	<param name="pounds">The decimal representation of pounds to be converted</param>
+	<returns>Only the non-whole pound portion of the pounds converted to ounces</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessEntityList`1.AddOrUpdate(`0)">
+	<summary>
+ Inserts an item if it does not exist in the list, otherwise it updates the item based on Bvin
+ </summary>
+	<param name="item">the item to be inserted or updated</param>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.BusinessEntityBase.Bvin">
+	<summary>
+ BV Identification Number, a unique GUID value that ensures the object
+ can be moved between databases without losing references to related
+ objects
+ </summary>
+	<value></value>
+	<remarks>If a class is saved without a BVIN, one will automatically 
+ be created. If a class is saved with a BVIN, the existing object will
+ be updated instead.</remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.BusinessEntityBase.LastUpdated">
+	<summary>
+ Lists the last time the object was updated in the database
+ </summary>
+	<value></value>
+	<remarks>This value is overwritten every time the object is saved.</remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessEntityBase.ToXml(System.Boolean)">
+	<summary>
+ Serializes the class to a string of XML data
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessEntityBase.ToXmlWriter(System.Xml.XmlWriter@)">
+	<summary>
+ Serializes the class to XML data and writes it to an XmlTextWriter object
+ </summary>
+	<param name="xw"></param>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessEntityBase.FromXmlString(System.String)">
+	<summary>
+	</summary>
+	<param name="x"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessEntityBase.FromXml(System.Xml.XmlReader@)">
+	<summary>
+ Parses XML data to populate the class fields
+ </summary>
+	<param name="xr">XmlReader</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Catalog.ProductInventory.QuantityAvailable">
+	<summary>
+ The total physical count of items on hand
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Catalog.ProductInventory.QuantityReserved">
+	<summary>
+ Count of items in stock but reserved for carts or orders
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Catalog.ProductInventory.QuantityOutOfStockPoint">
+	<summary>
+ The count at which this item is considered out of stock. May be above zero to provide a buffer for concurrent online orders
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Catalog.ProductInventory.ReorderPoint">
+	<summary>
+ The count at which this item needs to be reordered
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Catalog.ProductInventory.Status">
+	<summary>
+ The current status of this item        
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="T:BVSoftware.Bvc5.Core.PersonalizationServices">
+ -----------------------------------------------------------------------------
+ Project	 : BVSoftware.Aurora.Core
+ Class	 : BVC.Core.PersonalizationServices
+ 
+ -----------------------------------------------------------------------------
+ <summary>
+ API functions to personalize shopper experiences on the store ''' 
+ </summary>
+	<remarks>
+	</remarks>
+	<history>
+ 	[mmcconnell]	5/19/2004	Created
+ </history>
+ -----------------------------------------------------------------------------
+
+</member><member name="M:BVSoftware.Bvc5.Core.Catalog.Category.FindParentsToRoot(System.Collections.ObjectModel.Collection{BVSoftware.Bvc5.Core.Catalog.Category}@)">
+	<summary>
+ This method will populate a collection of categories with all categories from 
+ the current category to the root of the category tree
+ </summary>
+	<param name="parents">An initialized collection of catalog.category</param>
+	<remarks></remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.encryptionDecodeError">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-1 Couldn't decode message: .
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.encryptionEncodeError">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-2 Couldn't encode message: .
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.encryptionKeyLengthError">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-3 Key must be at least 32 bytes in length..
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.encryptionKeySetError">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-4 Couldn't Set Key:.
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.imageHelperResizeError">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-5 Couldn't Resize Image: .
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.parserErrorDate">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-8 Could not parse Date: .
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.parserErrorDecimal">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-6 Could not parse Decimal: .
+</summary>
+</member><member name="P:BVSoftware.Bvc5.Core.My.Resources.Resources.parserErrorInteger">
+	<summary>
+  Looks up a localized string similar to Error Code 5003-7 Could not parse Integer: .
+</summary>
+</member><member name="T:BVSoftware.Bvc5.Core.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:BVSoftware.Bvc5.Core.BusinessRules.OrderTasks.CredExCheckCredit.Execute(BVSoftware.Bvc5.Core.BusinessRules.OrderTaskContext)">
+	<summary>
+ Makes a call to the CredEx Service with customer and order information.
+ If the call succeeds, a url is returned
+ The url is stored with the order so that the CredExStart task can redirect to this
+ location where the customer will enter their CredEx authentication information
+ upon entering the auth information, the CredEx service will do an async
+ postback allowing BV to mark the order as paid, in the meantime, the customer is
+ returned to the receipt page in BV 
+ </summary>
+	<param name="context"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.Catalog.ProductSearchCriteria.AddParametersToRequest(BVSoftware.Bvc5.Core.Datalayer.DataRequest)">
+	<summary>
+ Adds parameters as appropriate to a datarequest for searching. 
+ Properties that are left at default values are not passed as parameters
+ </summary>
+	<param name="request">The datarequest to which parameters will be added</param>
+	<remarks>Only set properties on this class which you would like to use when searching.</remarks>
+</member><member name="M:BVSoftware.Bvc5.Core.Catalog.ProductStoreSearchCriteria.AddParametersToRequest(BVSoftware.Bvc5.Core.Datalayer.DataRequest)">
+	<summary>
+ Adds parameters as appropriate to a datarequest for searching. 
+ Properties that are left at default values are not passed as parameters
+ </summary>
+	<param name="request">The datarequest to which parameters will be added</param>
+	<remarks>Only set properties on this class which you would like to use when searching.</remarks>
+</member><member name="P:BVSoftware.Bvc5.Core.Utilities.CreditCardValidator.ErrorMessages">
+	<summary>
+ Holds the last error message reported by the validator
+ </summary>
+</member><member name="P:BVSoftware.Bvc5.Core.Utilities.CreditCardValidator.CardName">
+	<summary>
+ Holds the English name of the card type. For example: Visa
+ </summary>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.CreditCardValidator.CleanCardNumber(System.String)">
+	<summary>
+ Removes all non-digit characters from a credit card string
+ </summary>
+	<param name="rawCardNumber">input string containing user input</param>
+	<returns>A string containing only the digit characters of the credit card number</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.CreditCardValidator.ValidateCard(System.String,System.String)">
+	<summary>
+ Validates that a given card number matches the format and mod10 formula for a given type
+ </summary>
+	<param name="rawCardNumber">Card number to check</param>
+	<param name="cardType">Type of card to validate against (A = American Express, V = Visa, D = Discover, M = MasterCard, J = Japanese Credit Bureau, C = Diner's Club)</param>
+	<returns></returns>
+</member><member name="T:BVSoftware.Bvc5.Core.Catalog.CategorySortOrder">
+-----------------------------------------------------------------------------
+ Project		: BVSoftware.Aurora.Core
+ Enum		: CategorySortOrder
+
+-----------------------------------------------------------------------------
+ <summary>
+ Used to determine how categories are sorted on the site
+ </summary>
+	<remarks></remarks>
+	<history>
+ 	[mmcconnell] 	2/17/2004	Created
+ </history>
+-----------------------------------------------------------------------------
+
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.UrlRewriter.ResolveUrl(System.String)">
+	<summary>
+ Returns a site relative HTTP path from a partial path starting out with a ~.
+ Same syntax that ASP.Net internally supports but this method can be used
+ outside of the Page framework.
+ 
+ Works like Control.ResolveUrl including support for ~ syntax
+ but returns an absolute URL.
+ </summary>
+	<param name="originalUrl">Any Url including those starting with ~</param>
+	<returns>relative Url</returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.UrlRewriter.ResolveServerUrl(System.String)">
+	<summary>
+ This method returns a fully qualified absolute server Url which includes
+ the protocol, server, port in addition to the server relative Url.
+ 
+ It work like Page.ResolveUrl, but adds these to the beginning.
+ This method is useful for generating Urls for AJAX methods
+ </summary>
+	<param name="ServerUrl">Any Url, either App relative or fully qualified</param>
+	<returns></returns>
+</member><member name="M:BVSoftware.Bvc5.Core.Utilities.UrlRewriter.ResolveServerUrl(System.String,System.Boolean)">
+	<summary>
+ This method returns a fully qualified absolute server Url which includes
+ the protocol, server, port in addition to the server relative Url.
+ 
+ Works like Control.ResolveUrl including support for ~ syntax
+ but returns an absolute URL.
+ </summary>
+	<param name="ServerUrl">Any Url, either App relative or fully qualified</param>
+	<param name="forceHttps">if true forces the url to use https</param>
+	<returns></returns>
+</member>
+</members>
+</doc>

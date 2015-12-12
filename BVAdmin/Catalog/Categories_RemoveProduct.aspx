@@ -1,0 +1,2 @@
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Categories_RemoveProduct.aspx.vb" Inherits="BVAdmin_Catalog_Categories_RemoveProduct" %>
+<asp:Literal ID="litOutput" runat="server"></asp:Literal>  

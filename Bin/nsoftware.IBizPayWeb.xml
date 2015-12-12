@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nsoftware.IBizPayWeb</name>
+    </assembly>
+    <members>
+        <member name="T:nsoftware.core.j2cs.LineBufferBase">
+            <summary>
+            Provides functions for storing and appending large byte array in memory
+            </summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.CardvalidatorErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Cardvalidator.Config(System.String)">
+            <summary>Sets or retrieves a component configuration setting .</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Cardvalidator.Reset">
+            <summary>Clears all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Cardvalidator.ValidateCard">
+            <summary>Checks the card number and expiration date for validity.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Cardvalidator.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.CardExpMonth">
+            <summary>Expiration month of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.CardExpYear">
+            <summary>Expiration month of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.CardNumber">
+            <summary>Credit card number to be validated.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.CardType">
+            <summary>Indicates the results of the Luhn Digit Check algorithm.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.CardTypeDescription">
+            <summary>Human-readable description of the CardType</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.DateCheckPassed">
+            <summary>Indicates whether the card is expired or not.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.DigitCheckPassed">
+            <summary>Indicates the results of the Luhn Digit Check algorithm.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.TrackData">
+            <summary>Magnetic stripe data read off the credit card.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Cardvalidator.TrackType">
+            <summary>Indicates the type of the specified TrackData .</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.EcheckErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.EcheckSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.EcheckSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.SetSSLAcceptServerCert(System.Byte[],System.Int32,System.Int32)">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.SetSSLCertEncoded(System.Byte[],System.Int32,System.Int32)">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.SetSSLCertStore(System.Byte[],System.Int32,System.Int32)">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.Config(System.String)">
+            <summary>Sets or retrieves a component configuration setting .</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.AddSpecialField(System.String,System.String)">
+            <summary>Adds a special field name and the corresponding value.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.Authorize">
+            <summary>Initiates an authorization request transaction.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.Credit(System.String,System.String)">
+            <summary>Credits a previous ACH transaction.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.Interrupt">
+            <summary>Interrupts the current action.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.ResetData">
+            <summary>Clears all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Echeck.ResetSpecialFields">
+            <summary>Resets all special fields to the default settings.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Echeck.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Echeck.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Echeck.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.BankAccountName">
+            <summary>Account holder's name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.BankAccountNumber">
+            <summary>Bank account number for ACH transactions.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.BankAccountType">
+            <summary>Indicates whether a checking or savings account is used for this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.BankName">
+            <summary>Name of the accountholder's bank.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.BankRoutingNumber">
+            <summary>Routing number for ACH transactions.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CheckNumber">
+            <summary>Indicates the check number to use for a transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerAddress">
+            <summary>Customer's street address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerCity">
+            <summary>Customer's city.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerCountry">
+            <summary>Customer's country.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerEmail">
+            <summary>Customer's email address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerFax">
+            <summary>Customer's fax number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerFirstName">
+            <summary>Customer's first name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerId">
+            <summary>Merchant-generated customer Id.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerLastName">
+            <summary>Customer's last name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerLicenseDOB">
+            <summary>Customer's Date of Birth as indicated on his driver's license.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerLicenseNumber">
+            <summary>Customer's drivers license number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerLicenseState">
+            <summary>State in which customer's drivers license was issued.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerPhone">
+            <summary>Customer's phone number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerSSN">
+            <summary>Customer's Social Security Number</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerState">
+            <summary>Customer's state.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.CustomerZip">
+            <summary>Customer's zip code (or postal code if outside of the USA).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.FirewallHost">
+            <summary>Name or IP address of firewall (optional).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.FirewallPassword">
+            <summary>A password if authentication is to be used when connecting through the firewall.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.FirewallPort">
+            <summary>Port of the firewall to connect to.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.FirewallType">
+            <summary>Determines the type of firewall to connect through.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.FirewallUser">
+            <summary>A user name if authentication is to be used connecting through a firewall.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.Gateway">
+            <summary>Gateway to process transactions with.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.GatewayURL">
+            <summary>Default URL for a specific Gateway .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.InvoiceNumber">
+            <summary>Merchant-generated invoice number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.MerchantLogin">
+            <summary>Merchant's Gateway login.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.MerchantPassword">
+            <summary>Merchant's Gateway password.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxyAuthorization">
+            <summary>Similar to the Authorization property, but for proxy authorization.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxyPassword">
+            <summary>A password if Basic authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxyPort">
+            <summary>Port for the proxy server (default 80).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxyServer">
+            <summary>Name or IP address of a proxy server (optional).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxySSL">
+            <summary>Determines when to use SSL for the connection to the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ProxyUser">
+            <summary>A user name if Basic authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseApprovalCode">
+            <summary>Contains an authorization code when a transaction has been approved.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseCode">
+            <summary>Indicates the status of the authorization request.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseData">
+            <summary>The entire response returned from the gateway processor.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseInvoiceNumber">
+            <summary>Invoice number submitted in authorization request (if applicable).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseText">
+            <summary>Text information that describes each response code.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.ResponseTransactionId">
+            <summary>Contains the Visa Transaction Identifier or MasterCard Reference Number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SpecialFieldCount">
+            <summary>Number of special gateway configuration fields to include in the transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SpecialFieldNames">
+            <summary>Array of special gateway field names to submit in this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SpecialFieldValues">
+            <summary>Array of special gateway field values to submit in this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLAcceptServerCertB">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertEncodedB">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertEncoded">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertStoreB">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertStore">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertStorePassword">
+            <summary>The password for the certificate store (if any).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertStoreType">
+            <summary>The type of certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLCertSubject">
+            <summary>The subject of the certificate used for client authentication.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLServerCertB">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.SSLServerCertStatus">
+            <summary>The verification status of the server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.TransactionAmount">
+            <summary>Purchase amount for an authorization or retry transaction. Not used for reversals.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.TransactionApproved">
+            <summary>Indicates the status of the last transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Echeck.TransactionDesc">
+            <summary>Description of goods purchased.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.Echeck.SpecialFieldNamesIndexer">
+            <summary>Indexer for SpecialFieldNames.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.Echeck.SpecialFieldValuesIndexer">
+            <summary>Indexer for SpecialFieldValues.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IchargeErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IchargeSSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IchargeSSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.SetSSLAcceptServerCert(System.Byte[],System.Int32,System.Int32)">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.SetSSLCertEncoded(System.Byte[],System.Int32,System.Int32)">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.SetSSLCertStore(System.Byte[],System.Int32,System.Int32)">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.Config(System.String)">
+            <summary>Sets or retrieves a component configuration setting .</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.AddSpecialField(System.String,System.String)">
+            <summary>Adds a special field name and the corresponding value.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.Authorize">
+            <summary>Initiates an authorization request transaction.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.Capture(System.String,System.String)">
+            <summary>Captures a previously authorized transaction.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.Credit(System.String,System.String)">
+            <summary>Credits a previously captured transaction.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.GetQBAggregate">
+            <summary>Exports the XML required to reconcile with QuickBooks.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.Interrupt">
+            <summary>Interrupts the current action.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.PreAuthorize">
+            <summary>Runs pre-authorization checks on the customer's credit card data.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.ResetData">
+            <summary>Clears all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.ResetSpecialFields">
+            <summary>Resets all special fields to the default settings.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Icharge.VoidTransaction(System.String)">
+            <summary>Voids a previously authorized transaction.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Icharge.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Icharge.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Icharge.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CardCVV2Data">
+            <summary>A three digit security code located on the back of many credit cards (optional).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CardExpMonth">
+            <summary>Expiration month of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CardExpYear">
+            <summary>Expiration year of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CardNumber">
+            <summary>Customer's credit card number for this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CardType">
+            <summary>Type of credit card being used in this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerAddress">
+            <summary>Customer's street address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerCity">
+            <summary>Customer's city.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerCountry">
+            <summary>Customer's country.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerEmail">
+            <summary>Customer's email address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerFax">
+            <summary>Customer's fax number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerFirstName">
+            <summary>Customer's first name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerId">
+            <summary>Merchant-generated customer Id.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerLastName">
+            <summary>Customer's last name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerPhone">
+            <summary>Customer's phone number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerState">
+            <summary>Customer's state.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.CustomerZip">
+            <summary>Customer's zip code (or postal code if outside of the USA).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.FirewallHost">
+            <summary>Name or IP address of firewall (optional).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.FirewallPassword">
+            <summary>A password if authentication is to be used when connecting through the firewall.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.FirewallPort">
+            <summary>Port of the firewall to connect to.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.FirewallType">
+            <summary>Determines the type of firewall to connect through.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.FirewallUser">
+            <summary>A user name if authentication is to be used connecting through a firewall.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.Gateway">
+            <summary>Gateway to process transactions with.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.GatewayURL">
+            <summary>Default URL for a specific Gateway .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.InvoiceNumber">
+            <summary>Merchant-generated invoice number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.MerchantLogin">
+            <summary>Merchant's Gateway login.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.MerchantPassword">
+            <summary>Merchant's Gateway password.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxyAuthorization">
+            <summary>Similar to the Authorization property, but for proxy authorization.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxyPassword">
+            <summary>A password if Basic authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxyPort">
+            <summary>Port for the proxy server (default 80).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxyServer">
+            <summary>Name or IP address of a proxy server (optional).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxySSL">
+            <summary>Determines when to use SSL for the connection to the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ProxyUser">
+            <summary>A user name if Basic authentication is to be used for the proxy.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseApprovalCode">
+            <summary>Contains an authorization code when a transaction has been approved.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseAVS">
+            <summary>Contains the Address Verification System result code.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseCode">
+            <summary>Indicates the status of the authorization request.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseCVV2">
+            <summary>Contains the returned CVV2 result code if it was requested.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseData">
+            <summary>The entire response returned from the gateway processor.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseInvoiceNumber">
+            <summary>Invoice number submitted in authorization request (if applicable).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseText">
+            <summary>Text information that describes each response code.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.ResponseTransactionId">
+            <summary>Contains the Visa Transaction Identifier or MasterCard Reference Number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SpecialFieldCount">
+            <summary>Number of special gateway configuration fields to include in the transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SpecialFieldNames">
+            <summary>Array of special gateway field names to submit in this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SpecialFieldValues">
+            <summary>Array of special gateway field values to submit in this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLAcceptServerCertB">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertEncodedB">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertEncoded">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertStoreB">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertStore">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertStorePassword">
+            <summary>The password for the certificate store (if any).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertStoreType">
+            <summary>The type of certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLCertSubject">
+            <summary>The subject of the certificate used for client authentication.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLServerCertB">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.SSLServerCertStatus">
+            <summary>The verification status of the server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.Timeout">
+            <summary>A timeout for the component.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.TransactionAmount">
+            <summary>Purchase amount for an authorization transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.TransactionApproved">
+            <summary>Indicates the status of the last transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.TransactionDesc">
+            <summary>Description of goods purchased.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.TransactionId">
+            <summary>Transaction Id used for Capture, Credit, and Void transactions.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Icharge.TransactionType">
+            <summary>Specifies the type of transaction to process.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.Icharge.SpecialFieldNamesIndexer">
+            <summary>Indexer for SpecialFieldNames.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.Icharge.SpecialFieldValuesIndexer">
+            <summary>Indexer for SpecialFieldValues.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IverifyErrorEventArgs">
+            <summary>Event arguments for the Error event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IverifySSLServerAuthenticationEventArgs">
+            <summary>Event arguments for the SSLServerAuthentication event.</summary>
+        </member>
+        <member name="T:nsoftware.IBizPay.IverifySSLStatusEventArgs">
+            <summary>Event arguments for the SSLStatus event.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.SetSSLAcceptServerCert(System.Byte[],System.Int32,System.Int32)">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.SetSSLCertEncoded(System.Byte[],System.Int32,System.Int32)">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.SetSSLCertStore(System.Byte[],System.Int32,System.Int32)">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.Config(System.String)">
+            <summary>Sets or retrieves a component configuration setting .</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.Interrupt">
+            <summary>Interrupts the current action.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.Reset">
+            <summary>Clears all properties to their default values.</summary>
+        </member>
+        <member name="M:nsoftware.IBizPay.Iverify.Send">
+            <summary>Sends a transaction to PreCharge for fraud screening.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Iverify.OnError">
+            <summary>Information about errors during data delivery.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Iverify.OnSSLServerAuthentication">
+            <summary>Fired after the server presents its certificate to the client.</summary>
+        </member>
+        <member name="E:nsoftware.IBizPay.Iverify.OnSSLStatus">
+            <summary>Shows the progress of the secure connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CardExpMonth">
+            <summary>Expiration month of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CardExpYear">
+            <summary>Expiration year of the credit card specified in CardNumber .</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CardNumber">
+            <summary>Customer's credit card number for this transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CurrencyCode">
+            <summary>Indicates the currency of the transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerAddress1">
+            <summary>First line of a customer's street address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerAddress2">
+            <summary>Second line of a customer's street address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerCity">
+            <summary>Customer's city.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerCountry">
+            <summary>Customer's country.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerEmail">
+            <summary>Customer's email address.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerFirstName">
+            <summary>Customer's first name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerIP">
+            <summary>Customer's IP Address</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerLastName">
+            <summary>Customer's last name.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerPhone">
+            <summary>Customer's phone number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerState">
+            <summary>Customer's state or province.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.CustomerZip">
+            <summary>Customer's postal code.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.Description">
+            <summary>Description of goods purchased.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.FraudScore">
+            <summary>Indicates the likelihood that this transaction is fraudulent.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.InvoiceNumber">
+            <summary>Merchant-generated invoice number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.MerchantClientId">
+            <summary>Merchant's client identification number.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.MerchantId">
+            <summary>Merchant Id number supplied by PreCharge.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SecurityCode1">
+            <summary>Security Code #1</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SecurityCode2">
+            <summary>Security Code #2</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLAcceptServerCertB">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLAcceptServerCert">
+            <summary>Instructs the component to unconditionally accept the server certificate that matches the supplied certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertEncodedB">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertEncoded">
+            <summary>The SSL certificate (PEM/base64 encoded).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertStoreB">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertStore">
+            <summary>The name of the certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertStorePassword">
+            <summary>The password for the certificate store (if any).</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertStoreType">
+            <summary>The type of certificate store for the client certificate.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLCertSubject">
+            <summary>The subject of the certificate used for client authentication.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLServerCertB">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLServerCert">
+            <summary>The server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.SSLServerCertStatus">
+            <summary>The verification status of the server certificate for the last established connection.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.TestMode">
+            <summary>Indicates whether this is a test or live transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.TransactionAmount">
+            <summary>Purchase amount for the transaction.</summary>
+        </member>
+        <member name="P:nsoftware.IBizPay.Iverify.TransactionId">
+            <summary>Transaction Id returned from PreCharge.</summary>
+        </member>
+        <member name="F:nsoftware.core.FAbout.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:nsoftware.core.FAbout.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:nsoftware.core.FAbout.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

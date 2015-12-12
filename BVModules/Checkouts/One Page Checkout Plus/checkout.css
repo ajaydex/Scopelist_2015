@@ -1,0 +1,642 @@
+#OnePageCheckoutPlus .pad10 {
+	overflow: hidden;
+    padding: 10px;	
+}
+
+#OnePageCheckoutPlus {
+	font-size: 13px;
+}
+
+#OnePageCheckoutPlus * {
+	line-height: 1.0 !important;
+}
+#OnePageCheckoutPlus .checkoutStep {
+	position: relative;
+	margin-bottom: 20px;
+}
+#OnePageCheckoutPlus .checkoutStep h2 {
+	border-bottom: 1px solid #bebebe;
+	margin: 30px 0 0 !important; 
+	line-height: 1.8 !important;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutStepColumn1 {
+	float: left;
+	width: 55%;
+	padding: 20px 0;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutStepColumn2 {
+	width: 45%;
+	background: #fafafa;
+	padding: 20px 0;
+	float: right;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutStepColumn2 .checkoutInstructions {
+	padding: 0 25px;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutFieldColumn1 {
+	width: 49%;
+	float: left;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutFieldColumn2 {
+	width: 49%;
+	float: left;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutField {
+	padding-bottom: 10px;
+	min-height: 50px;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutField.state {
+	float: left;
+	padding-right: 10px;
+}
+#OnePageCheckoutPlus .checkoutStep .checkoutField.zip {
+	float: left;	
+}
+
+#OnePageCheckoutPlus .clear {
+	clear: both;
+}
+
+
+
+/*all steps*/
+#OnePageCheckoutPlus input[type="text"],
+#OnePageCheckoutPlus input[type="password"]{
+	width: 90%;
+	padding: 4px;
+	font-size: 13px;
+	background: #f7f7f7;
+	border: 1px solid #d5d5d5;
+	height: auto;
+	font-weight: bold;
+}
+#OnePageCheckoutPlus input[type="text"]:focus,
+#OnePageCheckoutPlus input[type="password"]:focus,
+#OnePageCheckoutPlus select:focus{
+	border: 1px solid #3eb0ff;	
+}
+#OnePageCheckoutPlus input[type="text"].short {
+	width: 50px!important;	
+}
+#OnePageCheckoutPlus select {
+	/*font-size: 22px;*/
+	border: 1px solid #d5d5d5;
+	background: #f7f7f7;
+	font-weight: bold;
+}
+#OnePageCheckoutPlus textarea {
+	padding: 4px;
+	font-size: 13px;
+	background: #f7f7f7;
+	border: 1px solid #d5d5d5;
+}
+
+
+
+/*error message summary*/
+#OnePageCheckoutPlus div.errormessage ul {
+    display: none;
+}
+
+/*client side validation messages*/
+#OnePageCheckoutPlus .validationMsg {
+	padding: 4px;
+	width: 90%;
+	background: #ffeae8; 
+	color: #f06355;
+	border: 1px solid #f06355;
+	margin-top: 1px;
+}
+#OnePageCheckoutPlus .validationMsg div {
+	padding: 6px;
+	line-height: 1.2 !important;
+	font-size: 11px;
+}
+
+/*error styles*/
+#OnePageCheckoutPlus .error {
+	color: #f06355 !important;	
+	text-transform: none;
+}
+#OnePageCheckoutPlus input[type="text"].error,
+#OnePageCheckoutPlus input[type="password"].error {
+    border: 1px solid #f06355;
+}
+#OnePageCheckoutPlus select.error {
+    border: 1px solid #f06355;
+    color: #000;
+}
+
+
+#OnePageCheckoutPlus .checkoutStep .checkoutFieldColumn1 label,
+#OnePageCheckoutPlus .checkoutStep .checkoutFieldColumn2 label,
+#OnePageCheckoutPlus .label {
+	display: block;
+	font-weight: normal!important;
+	margin: 0 0 5px;
+	font-size: 14px;
+	color: #666666;
+}
+#OnePageCheckoutPlus .checkoutStep label.required,
+#OnePageCheckoutPlus .checkoutStep .required {
+	font-weight: bold!important;
+}
+#OnePageCheckoutPlus table {
+	width: 100% !important;	
+}
+#OnePageCheckoutPlus table td {
+	vertical-align: middle;	
+	padding: 0 !important; 
+}
+
+
+/*ADDRESS BOOK*/
+#OnePageCheckoutPlus .addressbookpanel {
+	margin-bottom: 30px;	
+	position: relative;
+}
+#OnePageCheckoutPlus .addressbookpanel > span {
+	/*BUTTON*/
+	display: block;
+	height: 26px;
+	overflow: hidden;
+}
+#OnePageCheckoutPlus .addressbookpanel span input.addressBookButton {
+	width: 182px;
+	height: 52px;
+}
+#OnePageCheckoutPlus .addressbookpanel span input.addressBookButtonActive {
+	margin-top: -26px;
+}
+#OnePageCheckoutPlus .addressbookpanel div {
+	/*ADDRESS PANEL*/
+	position: absolute;
+	left: 31px; 
+	top: 26px;
+	-moz-box-shadow: 0 2px 6px #666;
+	-webkit-box-shadow: 0 2px 6px #666;
+	box-shadow: 0 2px 6px #666;
+	max-width: 450px;
+	background: #f5f5f5;
+}
+#OnePageCheckoutPlus .addressbookpanel div span .closeBtn {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+#OnePageCheckoutPlus ul.addressBook {
+	list-style: none;
+	margin: 25px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	max-height: 200px;
+	overflow: auto;
+	max-width: 450px;
+}
+#OnePageCheckoutPlus ul.addressBook li {
+	margin: 5px;
+	padding: 0;
+}
+#OnePageCheckoutPlus ul.addressBook li p {
+	margin: 0!important;
+	padding: 0!important;
+}
+#OnePageCheckoutPlus ul.addressBook li a {
+	display: block;
+	padding: 15px;
+	text-decoration: none;
+	background: #dcf0f8;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	font-size: 12px;
+	line-height: 16px!important;
+}
+#OnePageCheckoutPlus ul.addressBook li a strong {
+	font-weight: bold;	
+}
+#OnePageCheckoutPlus ul.addressBook li a:hover {
+	background: #aee1f6;
+	color: black;
+}
+
+
+
+
+/*particular steps*/
+
+/*SHIPPING ADDRESS & METHOD*/
+#OnePageCheckoutPlus .stepShippingAddress {
+
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 {
+	
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod {
+	clear: both;
+	overflow:hidden;
+	padding-top: 20px;
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod table {
+	margin-bottom: 10px;	
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod table td {
+	vertical-align: middle;	
+	padding: 0 0 !important;
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod table td input {
+	margin: 4px;	
+	float: left;
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod table td label {
+	margin-bottom: 0 !important;
+	line-height: 22px !important;
+	float: left;
+}
+#OnePageCheckoutPlus .stepShippingAddress .checkoutStepColumn1 .shippingMethod a.shippingterms {
+	font-size: 12px;
+	line-height: 18px !important;	
+}	
+
+/*BILLING ADDRESS*/
+#OnePageCheckoutPlus .stepBillingAddress {
+	
+}
+
+/*PAYMENT METHOD*/
+#OnePageCheckoutPlus .stepPayemntMethod {
+	
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table {
+	width: 95% !important;	
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table td {
+	font-weight: normal;
+	padding: 13px 0 15px !important;
+	border-bottom: 1px dotted #CCC;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table td + td {
+	padding: 15px 0 15px !important;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table td.radiobuttoncol {
+	vertical-align: top;
+	width: 140px;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table td.radiobuttoncol input {
+	margin: 0 4px 0;
+	padding: 0;
+	float: left;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 > table td.radiobuttoncol label {
+	float: left;
+	margin-top: 2px;
+	font-weight: bold;
+}
+
+/*credit card info*/
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table {
+	width: 100% !Important;	
+	background: #FAFAFA;
+	border: 1px solid silver;
+	border-bottom: none;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table td {
+	padding: 5px !important;	
+	border-bottom: 1px solid silver;
+}	
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table td.formlabel {
+	vertical-align: top;
+	width: 110px;
+	padding-left: 10px !important;	
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table td.formlabel label {
+	display: block;
+	line-height: 26px !important;
+	display: block;
+}
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table td input,
+#OnePageCheckoutPlus .stepPayemntMethod .checkoutStepColumn1 table td div.creditcardinput table td select {
+	background: #fff !Important;	
+}
+#OnePageCheckoutPlus select.error,
+#OnePageCheckoutPlus input.error {
+	color: #444444!important;
+}
+#OnePageCheckoutPlus .creditCards {
+	margin-top: 5px;
+}
+#OnePageCheckoutPlus .creditCards img {
+	width: 40px;
+	margin: 1px;
+}
+#OnePageCheckoutPlus .creditCards img:hover {
+	cursor: pointer;
+}
+#OnePageCheckoutPlus .creditCards img.selected {}
+#OnePageCheckoutPlus .creditCards img.notSelected {
+	opacity: .2;	
+}
+#OnePageCheckoutPlus .creditCards img.notSelected:hover {
+	opacity: 1.0;	
+}
+#OnePageCheckoutPlus .creditcardinput table td.formfield {
+    white-space:normal;
+}
+
+/*REDEEM A GIFT CERTIFICATE*/
+/*GIFT CERTIFICATE CONTROL - STOCK*/
+#OnePageCheckoutPlus .giftcertificates {
+		
+}
+#OnePageCheckoutPlus table.giftcertificates {
+
+}
+#OnePageCheckoutPlus table.giftcertificates td {
+	padding-bottom: 4px !important;	
+}
+#OnePageCheckoutPlus table.giftcertificates td input[type=text] {
+	width: 25%;	
+}
+#OnePageCheckoutPlus table.giftcertificates td table {
+	width: 90% !important;
+	margin-top: 15px;
+}
+#OnePageCheckoutPlus table.giftcertificates td table th {
+	padding: 10px;
+	text-align: left !important;	
+	display: none!important;
+}
+#OnePageCheckoutPlus table.giftcertificates td table td {
+	padding: 10px !important;
+	vertical-align: middle;	
+	background: #dbeff8;
+	background: -moz-linear-gradient(top,  #dbeff8 0%, #eef9fe 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbeff8), color-stop(100%,#eef9fe));
+	background: -webkit-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -o-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -ms-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbeff8', endColorstr='#eef9fe',GradientType=0 );
+
+}
+#OnePageCheckoutPlus table.giftcertificates td table td input {
+	float: right;	
+}
+
+	/*ideal markup*/
+	/*
+	#OnePageCheckoutPlus .stepGiftCertificate label {
+		float: left;
+		width: 25%;
+		line-height: 25px!important;
+		margin: 0;
+	}
+	#OnePageCheckoutPlus .stepGiftCertificate input.text {
+		float: left;
+		width: 25%!important;
+	}
+	#OnePageCheckoutPlus .stepGiftCertificate input.button {
+		float: left;
+		background: #777777;
+		border: none;
+		color: #fff;
+		font-weight: bold;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		font-size: 13px;
+		line-height: 26px;
+		padding: 4px 10px 4px 7px;
+		margin: 0 0 0 4px;
+	}
+	*/
+	
+
+/*PROMOTION CODE*/
+#OnePageCheckoutPlus .stepPromotionCode {
+	
+}
+#OnePageCheckoutPlus .stepPromotionCode table.promotions  {
+	width: 90% !important;
+	margin-top: 15px;
+}
+#OnePageCheckoutPlus .stepPromotionCode table.promotions  td {
+	padding: 10px !important;
+	vertical-align: middle;	
+	background: #dbeff8;
+	background: -moz-linear-gradient(top,  #dbeff8 0%, #eef9fe 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dbeff8), color-stop(100%,#eef9fe));
+	background: -webkit-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -o-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: -ms-linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	background: linear-gradient(top,  #dbeff8 0%,#eef9fe 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbeff8', endColorstr='#eef9fe',GradientType=0 );
+	border-top: 10px solid #fff !important;
+	border-bottom: 10px solid #fff !important;
+}
+#OnePageCheckoutPlus .stepPromotionCode table.promotions  td input {
+	float: right;	
+}
+	/*ideal markup*/
+	#OnePageCheckoutPlus .stepPromotionCode label {
+		float: left;
+		width: 25%;
+		line-height: 25px!important;
+		margin: 0;
+		padding: 0 !important;
+	}
+	#OnePageCheckoutPlus .stepPromotionCode input.text {
+		float: left;
+		width: 25%!important;
+		margin-right: 4px;
+	}
+	#OnePageCheckoutPlus .stepPromotionCode input.button {
+		float: left;
+		background: #777777;
+		border: none;
+		color: #fff;
+		font-weight: bold;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		font-size: 13px;
+		line-height: 26px;
+		padding: 4px 10px 4px 7px;
+		margin: 0 0 0 4px;
+	}
+
+
+/*CREATE YOUR ACCOUNT*/
+#OnePageCheckoutPlus .stepCreateAccount {
+	
+}
+#OnePageCheckoutPlus .stepCreateAccount .checkoutField {
+	min-height: 35px;
+}
+#OnePageCheckoutPlus .stepCreateAccount div {
+	overflow: hidden;	
+}
+#OnePageCheckoutPlus .stepCreateAccount div label {
+	float: left;
+	width: 30%;
+	line-height: 1.9!important;
+}
+#OnePageCheckoutPlus .stepCreateAccount div input {
+	float: left;
+	width: 25%;	
+	margin-right: 4px;
+}
+#OnePageCheckoutPlus .stepCreateAccount div span.error {
+	float: left;
+	font-size: 12px;
+	line-height: 1.9!important;	
+}
+
+
+
+/*PLEASE REVIEW YOUR ORDER*/
+#OnePageCheckoutPlus .stepReview {
+	border-bottom: 1px solid #bebebe;
+	padding-bottom: 20px;
+}
+#OnePageCheckoutPlus .checkoutStep.stepReview h2 {
+	
+}
+#OnePageCheckoutPlus .stepReview .reviewInstructions {
+	margin: 15px 0 20px;
+}
+specialInstructions
+#OnePageCheckoutPlus .stepReview table.ReviewTable {
+		
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable {
+	margin-bottom: 30px;
+	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr.rowheader th {
+	text-align: left;
+	color: #333;
+	background: #CCC;
+	padding: 10px;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr.row td,
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr.altrow td {
+	text-align: left ;
+	color: #525252;
+	background: #fff;
+	border-bottom: 1px solid #e9e9e9!important;
+	padding: 0 !important;
+	font-size: 12px;
+	vertical-align: top;
+	overflow: auto;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr .lineitemnodiscounts {
+    text-decoration: line-through;
+}
+
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.image {
+	width: 10%;	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.image img {
+	width: 63px;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.one {
+	width: 45%;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.two {
+	width: 15%;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.three {
+	width: 13%;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td.four {
+	width: 14%;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable table.itemTable tr td span {
+	display: block;
+	line-height: 1.3 !important;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.accentBg {
+	width: 65%;	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable label {
+	font-weight: bold;	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable textarea {
+	margin-top: 5px;	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.totals {
+	width: 45%;
+	background: #fafafa;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.totals table {
+	margin: 15px 25px;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.totals table tr {
+	background: none;	
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.totals table tr.grandtotal td {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td.totals table td {
+	padding: 10px 0 !important;
+	background: none;
+}
+#OnePageCheckoutPlus .stepReview table#ReviewTable td textarea.specialInstructions {
+	min-height: 150px;
+}
+
+
+/*NEWSLETTER SIGNUP*/
+#OnePageCheckoutPlus .stepMailingList {
+	min-height: 150px;
+}
+#OnePageCheckoutPlus .stepMailingList .checkoutStepColumn2 {
+	background: none;	
+}
+#OnePageCheckoutPlus .stepMailingList .checkoutStepColumn2 div {
+	padding: 0 0 15px;	
+}
+#OnePageCheckoutPlus .stepMailingList .checkoutStepColumn2 div a.viewSiteTerms {
+	float: left;
+	margin-left: 22px;
+	font-size: .8em;
+}
+
+
+/*INSTRUCTIONAL TEXT*/
+#OnePageCheckoutPlus .reviewInstructions,
+#OnePageCheckoutPlus .checkoutInstructions {
+	font-size: 12px;
+	line-height: 18px!important;
+	color: #525252 !important;
+}
+#OnePageCheckoutPlus .checkoutInstructions .error label {
+	color: #F06355;
+}
+
+
+/*--------------------REVIEW INSTRUCTIONS------------------*/
+/* OVERRIDE HTML ELEMENTS IN THE CHECKOUTINSTRUCTIONS */
+
+/*if you are using html in your checkout instructions you may need to override sitewide styles for those elements here.*/
+#OnePageCheckoutPlus .reviewInstructions p,
+#OnePageCheckoutPlus .checkoutInstructions p {
+	font-size: 12px;
+	line-height: 18px!important;
+	color: #525252 !important;
+}
+
+#OnePageCheckoutPlus .reviewInstructions h6,
+#OnePageCheckoutPlus .checkoutInstructions h6 {
+	margin: 1em 0;	
+}
+
+
+

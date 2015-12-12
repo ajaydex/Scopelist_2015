@@ -1,0 +1,1 @@
+<%@ WebService Class="BVSoftware.Bvc5.Core.Services.WebServices4,BVSoftware.Bvc5.Core" %>

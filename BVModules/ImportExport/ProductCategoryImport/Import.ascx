@@ -1,0 +1,4 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="Import.ascx.vb" Inherits="BVModules_ImportExport_ProductCategoryImport_Import" %>
+
+<h6 style="margin: 20px 0 5px 0">Important</h6>
+<p>This import works differently than the others in that it does not work on a subset of the data. Meaning, <strong>your import file must contain every product in this category.</strong> Any product <em>not</em> contained in your import file will be removed from this category&mdash;that's how it knows which products to remove from this category. Likewise, any product that you <em>add</em> to your import file will be added to this category.</p>

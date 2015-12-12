@@ -1,0 +1,2035 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #515044;
+    line-height: 22px;
+    background: #e7e7e7;
+}
+
+
+a
+{
+    outline: none;
+    color: #1d1d1a;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+    color: #c02400;
+}
+
+::selection
+{
+    background: #cbc8a9;
+    color: #515044;
+}
+
+::-moz-selection
+{
+    background: #cbc8a9;
+    color: #515044;
+}
+
+h1
+{
+    font-size: 19px;
+    text-transform: uppercase;
+    background: url('../ScopelistImages/bg-h2.jpg') repeat-x left 10px;
+    margin: 20px 0 15px;
+    padding: 0 0 0 15px;
+    font-weight: normal;
+}
+
+h1 span
+{
+    background: #fff;
+    padding: 0 10px;
+}
+
+h2
+{
+    font-size: 19px;
+    text-transform: uppercase;    
+    background: url('../ScopelistImages/bg-h2.jpg') repeat-x left 10px;
+    margin: 20px 0 15px;
+    padding: 0 0 0 15px;
+    font-weight: normal;
+}
+
+h2 span
+{
+    background: #fff;
+    padding: 0 10px;
+}
+
+h2.normal-h2
+{
+    background: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.heading-h2 h2
+{
+    background: none !important;
+    padding: 0;
+    margin-top: 5px;
+}
+
+/* modified h3 style */
+h3
+{
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 0 10px !important;
+}
+
+h3 a
+{
+    color: #515044;
+}
+
+h4.line-behind
+{
+    background: url('../ScopelistImages/bg-h2.jpg') repeat-x left 50%;
+    margin: 10px 0;
+}
+
+h4.line-behind span
+{
+    padding: 3px 5px;
+    background: #cbc8a9;
+}
+
+.margin-rt
+{
+    margin-right: 12px;
+}
+
+.no-margin
+{
+    margin: 0 !important;
+}
+
+.light-text
+{
+    color: #979582;
+}
+
+.border-top
+{
+    border-top: 1px solid #e1dfd6;
+    margin: 12px 0;
+}
+
+.border-right
+{
+    border-right: 1px solid #e1dfd6;
+    margin: 0;
+}
+
+.width-471
+{
+    width: 471px;
+    margin: 0 auto;
+}
+
+.left-half
+{
+    float: left;
+    width: 50%;
+}
+
+.right-half
+{
+    float: right;
+    width: 50%;
+}
+
+.left-half-border
+{
+    float: left;
+    width: 49%;
+    border-right: 1px solid #e1dfd6;
+}
+
+.top-border-block
+{
+    border-top: 1px solid #e1dfd6;
+    padding: 12px 0;
+    margin: 12px 0;
+}
+
+
+.header
+{
+    background: #fff;
+}
+
+.top
+{
+    width: 979px;
+    margin: 0 auto;
+}
+
+.logo
+{
+    float: left;
+    width: 236px;
+    height: 97px;
+}
+
+.logo a
+{
+    text-indent: -9999px;
+    display: block;
+    background: url(../ScopelistImages/logo.jpg) no-repeat;
+    height: 97px;
+    width: 236px;
+}
+
+.search
+{
+    float: right;
+    width: 298px;
+    height: 32px;
+    background: #e9e9e9;
+    padding: 6px;
+    margin: 26px 0 0 45px;
+}
+
+.search-field
+{
+    width: 221px;
+    height: 32px;
+    padding: 0 3px;
+    border: none;
+    background: #fff;
+    float: left;
+    color: #979582;
+}
+
+.search-button
+{
+    width: 71px;
+    height: 32px;
+    border: none;
+    background: #cbc8a9;
+    float: left;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.request-price
+{
+    float: right;
+    margin: 32px 0 0;
+}
+
+.menu-block
+{
+}
+
+.top-menu
+{
+    height: 45px;
+    background: #cbc8a9;
+}
+
+.top-menu-inner
+{
+    width: 979px;
+    margin: 0 auto;
+}
+
+.top-menu ul
+{
+}
+
+.top-menu ul li
+{
+    float: left;
+}
+
+.top-menu ul li a
+{
+    color: #373215;
+    display: block;
+    padding: 10px 15px 13px;
+}
+
+.top-menu ul li a:hover
+{
+    color: #fff;
+    background: #515044;
+    text-decoration: none;
+}
+
+.top-menu ul li a.active
+{
+    color: #fff;
+    background: #515044;
+    text-decoration: none;
+}
+
+.sub-menu
+{
+    height: 45px;
+    background: #515044;
+    font-size: 13px;
+}
+
+.sub-menu-inner
+{
+    width: 979px;
+    margin: 0 auto;
+}
+
+.sub-menu ul
+{
+    width: 525px;
+    float: left;
+}
+
+.sub-menu ul li
+{
+    float: left;
+    background: url('../ScopelistImages/devider-sub-menu.jpg') no-repeat right 16px;
+}
+
+.sub-menu ul li a
+{
+    color: #cbc8a9;
+    display: block;
+    padding: 10px 15px 13px;
+}
+
+.sub-menu ul li a:hover
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-menu ul li a.active
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+.sub-menu ul li.signin-sign-up-item
+{
+    background: none;
+}
+
+.sub-menu ul li.signin-sign-up-item a
+{
+    color: #fff;
+}
+
+.submenu-right
+{
+    float: right;
+    color: #cbc8a9;
+    padding: 10px 0 0;
+    width: 454px;
+}
+
+.submenu-right a
+{
+    color: #fff;
+    font-weight: bold;
+}
+
+.top-cart
+{
+    float: right;
+    margin: 0 0 0 12px;
+}
+
+.container
+{
+    margin: 20px auto 30px;
+    padding: 12px;
+    width: 955px;
+    background: #fff;
+    min-height: 400px;
+}
+
+
+.container p
+{
+    line-height: 22px;
+}
+
+.banner
+{
+}
+
+.banner-inner
+{
+    height: 118px;
+    overflow: hidden;
+}
+.leftalt-column
+{
+    width: 179px;
+    float: left;
+    margin: -9px 15px 0 0;
+}
+
+.left-column
+{
+    width: 179px;
+    float: left;
+    margin: 12px 15px 0 0;
+}
+
+.bigalt-column
+{
+    float: left;
+    margin: 0px 0 0;
+    width: 761px;
+}
+.big-column
+{
+    width: 761px;
+    float: left;
+    margin: 12px 0 0;
+}
+
+.big-column ul
+{
+    margin: 5px 0 10px 0;
+}
+
+.big-column ul li
+{
+    background: url(../ScopelistImages/icon-li.png) no-repeat left 5px;
+    padding: 0 0 5px 25px;
+}
+
+.one-column
+{
+    margin: 12px 0 0;
+}
+
+.one-column ul
+{
+    margin: 5px 0 10px 0;
+}
+
+.one-column ul li
+{
+    background: url(../ScopelistImages/icon-li.png) no-repeat left 5px;
+    padding: 0 0 5px 25px;
+}
+
+.breadcrumb
+{
+    font-size: 12px;
+}
+
+.sitemap ul li
+{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.sitemap ul li ul li
+{
+    background: url(../ScopelistImages/icon-2nd-li.png) no-repeat left 8px;
+    padding: 0 0 5px 18px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.sitemap ul li ul li ul li
+{
+    background: url(../ScopelistImages/icon-3rd-li.png) no-repeat left 7px;
+    padding: 0 0 7px 18px;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.left-block
+{
+    background: #cbc8a9;
+    color: #515044;
+    margin: 0 0 12px;
+}
+
+/*
+.left-block h2
+{
+    background: #515044;
+    color: #cbc8a9;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: none;
+    padding: 5px 10px !important;
+    margin: 0 !important;
+}
+*/
+
+
+.left-block h2, .left-block p
+{
+    background: none repeat scroll 0 0 #515044;
+    color: #CBC8A9;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+    text-transform: none;
+}
+
+
+.left-subject
+{
+    font-size: 12px;
+    padding: 10px;
+}
+
+.left-subject ul li
+{
+    line-height: 15px;
+    padding: 0 0 10px;
+}
+
+.brands-block
+{
+    border: 1px solid #e1dfd6;
+    min-height: 73px;
+    position: relative;
+}
+
+.list-view
+{
+    margin-bottom: 20px;
+}
+
+.product-block
+{
+    width: 177px;
+    border: 1px solid #e1dfd6;
+    text-align: center;
+}
+
+.product-block img
+{
+    width: 170px;
+}
+
+.extra-pic
+{
+    float: right;
+}
+
+.price-button-block
+{
+    background: #e0decb;
+    min-height: 26px;
+    margin-top: 15px;
+    padding: 6px;
+}
+
+.price
+{
+    color: #c02400;
+    font-weight: bold;
+}
+
+.list-desc
+{
+    margin-left: 191px;
+}
+
+.product-block-general
+{
+    border: 1px solid #e1dfd6;
+    padding: 10px;
+}
+
+.product-block-small
+{
+    border: 1px solid #E1DFD6;
+    display: table-cell;
+    float: left;
+    min-height: 225px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 335px;
+}
+
+.product-block-small img
+{
+    max-width: 335px;
+    max-height: 325px;
+}
+
+.social-share
+{
+    padding: 6px 0 0;
+}
+
+.social-share .float-l a
+{
+    background: #cbc8a9;
+    padding: 3px 6px;
+    margin: 0 6px 0 0;
+    float: left;
+}
+
+.social-share .float-l a:hover
+{
+    background: #373215;
+    color: #CBC8A9;
+    text-decoration: none;
+}
+
+.price-qty-button
+{
+    padding: 6px 0;
+    border-bottom: 1px solid #e1dfd6;
+    border-top: 1px solid #e1dfd6;
+    margin: 15px 0 0;
+}
+
+.detailpage-price
+{
+    padding: 10px 0 0;
+    float: left;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.qty-detailpage
+{
+    padding: 4px 12px 0 0;
+}
+
+.qty-field
+{
+    border: 1px solid #dcdcdc;
+    background: #e7e7e7;
+    height: 25px;
+    width: 43px;
+    padding: 3px 6px;
+    text-align: center;
+}
+
+.small-product-right
+{
+    float: right;
+    width: 602px;
+}
+
+.share-addwishlist
+{
+    padding: 6px 0 0;
+}
+
+.grid-view
+{
+}
+
+.grid-view ul
+{
+}
+
+.grid-view ul li
+{
+    float: left;
+    background: none;
+    padding: 0;
+    width: 179px;
+    margin: 0 15px 0 0;
+    text-align: center;
+}
+
+ul.three-column
+{
+}
+
+ul.three-column li
+{
+    float: left;
+    width: 220px;
+    margin-right: 8px;
+}
+
+/*-----------------------Success message css------------------------*/
+.success_panel
+{
+    width: 100%;
+    background: #eaf4da;
+    margin: 10px 0;
+    border: 1px solid #4F8100;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of Success message css------------------------*/
+
+/*-----------------------ERROR message css------------------------*/
+.error_panel
+{
+    width: 100%;
+    background: #FFF9EE;
+    margin: 10px 0;
+    border: 1px solid #DD4E00;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of ERROR message css------------------------*/
+
+/*-----------------------INFO message css------------------------*/
+.info_panel
+{
+    width: 100%;
+    background: #DDECF7;
+    margin: 10px 0;
+    border: 1px solid #4376A7;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of INFO message css------------------------*/
+
+/*-----------------------QUESTION message css------------------------*/
+.ques_panel
+{
+    width: 100%;
+    background: #fff;
+    margin: 10px 0;
+    border: 1px solid #FCB611;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of QUESTION message css------------------------*/
+
+/*-----------------------WORNING message css------------------------*/
+.worning_panel
+{
+    width: 100%;
+    background: #fff;
+    margin: 10px 0;
+    border: 1px solid #FF8400;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of WORNING message css------------------------*/
+
+/*-----------------------EXCEPTION message css------------------------*/
+.exception_panel
+{
+    width: 100%;
+    background: #fff;
+    margin: 10px 0;
+    border: 1px solid #FF583C;
+}
+
+.panel-inner
+{
+    padding: 6px;
+}
+
+.panel-inner img
+{
+    float: left;
+    padding: 0 10px 0px 0;
+}
+
+.panel-inner span
+{
+    float: left;
+    padding: 6px 10px 0px 0;
+    display: block;
+}
+
+.panel-inner div
+{
+    clear: both;
+}
+/*----------------------- end of EXCEPTION message css------------------------*/
+
+.error_list
+{
+    background: #FFF9EE;
+    border: 1px solid #DD4E00;
+}
+
+.error_list ul
+{
+    padding: 10px;
+    margin: 0;
+}
+/*http://localhost:49495/ScopeList/BVModules/Themes/Scopelist/ScopelistImages/error_cross.png */
+.error_list li
+{
+    list-style-type: none;
+    background: url(../ScopelistImages/icon-li.png) no-repeat 0 6px;
+    padding: 0 0 5px 25px;
+    color: #DD4E00;
+}
+
+.error_cartValidation
+{
+    border: 1px solid;
+    list-style-type: none;
+    padding: 0 0 3px 0px;
+    color: Red;
+    padding-left: 0px;
+}
+
+.error_cartValidation li
+{
+    list-style-type: none;
+    background: url(../ScopelistImages/ex.png) no-repeat 0 6px;
+    padding-bottom: 11px !important;
+    padding-left: 34px !important;
+    padding-top: 8px !important;
+}
+
+
+.error_cartValidation ul
+{
+    padding-bottom: 3px !important;
+    padding-top: 3px !important;
+    padding-left: 10px !important;
+    margin: 0 !important;
+}
+
+.errorCustom li
+{
+    list-style-type: none;
+    background: url(../ScopelistImages/error_cross.png) no-repeat 0 6px !important;
+    padding-bottom: 11px !important;
+    padding-left: 34px !important;
+    padding-top: 8px !important;
+    color: #DD4E00;
+}
+
+
+.errorCustom ul
+{
+    padding-bottom: 3px;
+    padding-top: 3px;
+    padding-left: 10px;
+    margin: 0;
+}
+.errorCustom
+{
+    background: #FFF9EE;
+    border: 1px solid #DD4E00;
+}
+
+
+/*----------------------- Cart page table CSS------------------------*/
+table.cart-table
+{
+    margin: 20px 0 10px 0;
+    text-align: left;
+    border-bottom: 1px solid #CCC;
+}
+
+table.cart-table img
+{
+    max-width: 75px;
+    max-height: 75px;
+}
+
+table.cart-table tr th
+{
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    text-align: left;
+}
+
+table.cart-table tr th + th + th + th
+{
+    text-align: center;
+}
+
+table.cart-table tr th:first-child
+{
+    border-left: 1px solid #CCC;
+    width: 75px;
+    text-align: center;
+}
+
+table.cart-table tr th:last-child
+{
+    border-right: 1px solid #CCC;
+}
+
+table.cart-table tr td:first-child
+{
+    border-left: 1px solid #CCC;
+    text-align: center;
+    font-weight: bold;
+}
+
+table.cart-table tr td:last-child
+{
+    border-right: 1px solid #CCC;
+}
+
+table.cart-table tr td + td + td + td
+{
+    text-align: center;
+}
+
+.img-col
+{
+    width: 100px;
+}
+
+.product-col
+{
+    width: 300px;
+}
+
+.price-col
+{
+    width: 100px;
+}
+/*----------------------- end of Cart page table CSS------------------------*/
+
+/*----------------------- wishlist page table CSS------------------------*/
+table.wishlist-table
+{
+    margin: 20px 0 10px 0;
+    text-align: left;
+}
+
+table.wishlist-table tr td.pro-image img
+{
+    max-width: 75px;
+    max-height: 75px;
+}
+
+table.wishlist-table tr th
+{
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    text-align: left;
+    padding: 4px !important;
+}
+
+table.wishlist-table tr th:first-child
+{
+    border-left: 1px solid #CCC;
+    width: 75px;
+    text-align: center;
+}
+
+table.wishlist-table tr th:last-child
+{
+    border-right: 1px solid #CCC;
+    text-align: right;
+}
+
+table.wishlist-table tr td
+{
+    border-bottom: 1px solid #CCC;
+    padding: 4px !important;
+}
+
+table.wishlist-table tr td:first-child
+{
+    border-left: 1px solid #CCC;
+    text-align: center;
+    font-weight: bold;
+}
+
+table.wishlist-table tr td:last-child
+{
+    border-right: 1px solid #CCC;
+    text-align: right;
+}
+
+.img-col
+{
+    width: 100px;
+}
+
+.product-col
+{
+    width: 150px;
+}
+
+.price-col
+{
+    width: 100px;
+}
+/*----------------------- end of wishlist page table CSS------------------------*/
+
+table.order-history
+{
+    margin: 20px 0 10px 0;
+    text-align: left;
+    border-left: 1px solid #CCC !important;
+    border-right: 1px solid #CCC !important;
+}
+
+table.order-history tr th
+{
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    text-align: left;
+}
+
+table.order-history tr th:last-child
+{
+    text-align: right;
+}
+
+table.order-history tr td
+{
+    border-bottom: 1px solid #CCC;
+    border-top: 1px solid #CCC;
+    text-align: left;
+}
+
+table.order-history tr td:last-child
+{
+    text-align: right;
+}
+
+.general-form
+{
+    width: 450px;
+    padding: 12px;
+    background: #cbc8a9;
+    margin-bottom: 12px;
+    padding-top: 22px !important;
+}
+
+.form-row
+{
+    margin: 0 0 13px !important;
+}
+
+.form-left
+{
+    float: left;
+    width: 130px;
+    text-align: right;
+    padding: 2px 2px 0 0;
+}
+
+.form-right
+{
+    float: left;
+    width: 285px;
+    text-align: left;
+    font-size: 13px;
+}
+
+.form-right input
+{
+    background: #fff;
+    border: 1px solid #515044;
+    height: 25px;
+    width: 280px;
+}
+
+.form-right input[type="checkbox"]
+{
+    background: none;
+    width: auto;
+    height: auto;
+}
+
+.form-right input[type="button"]
+{
+    width: 70px;
+    height: 27px;
+    background: url(../ScopelistImages/button-signin.png) no-repeat;
+    cursor: pointer;
+    border: none;
+}
+
+.form-right select
+{
+    background: #fff;
+    border: 1px solid #515044;
+    height: 25px;
+    width: 280px;
+}
+
+.signin
+{
+}
+
+.signInNew
+{
+    background: transparent url('../ScopelistImages/button-signin.png') no-repeat scroll 0 0 !important;
+    border: medium none;
+    cursor: pointer;
+    height: 27px;
+    width: 70px !important;
+}
+
+.below-cart
+{
+    font-weight: bold;
+}
+
+table.summary
+{
+    border-bottom: 1px solid #e1dfd6;
+    margin-bottom: 12px;
+}
+
+table.summary tr td
+{
+    width: 50%;
+    border-top: 1px solid #e1dfd6;
+    border-left: 1px solid #e1dfd6;
+}
+
+table.summary tr td + td
+{
+    text-align: right;
+    border-right: 1px solid #e1dfd6;
+    border-left: 0 solid #e1dfd6;
+}
+
+.addressbook-block
+{
+    border: 1px solid #e1dfd6;
+    margin-top: -1px;
+    padding: 15px;
+}
+
+textarea
+{
+    background: #fff;
+    border: 1px solid #515044;
+    height: 70px;
+    width: 280px;
+}
+
+
+
+.checkout-block
+{
+    padding: 15px 0;
+    border-top: 1px solid #CCC;
+    margin: 12px 0 0;
+}
+
+.footer
+{
+    width: 979px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 13px;
+}
+
+.footer .footer-menu
+{
+}
+
+.footer .footer-menu ul
+{
+    text-align: center;
+}
+
+.footer .footer-menu ul li
+{
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer .footer-menu ul li a
+{
+}
+
+.footer .footer-menu ul li a:hover
+{
+    text-decoration: underline;
+}
+
+
+
+/* --------------------- CSS for main Slider --------------------------- 
+.svw {width: 100px; height: 100px; background: #fff;} 
+.svw ul {position: relative; left: -999em;}
+.stripViewer {  position: relative; overflow: hidden;   margin: 0 0 1px 0; } 
+.stripViewer ul {margin: 0; padding: 0; position: relative; left: 0; top: 0; width: 1%; list-style-type: none; }
+ .stripViewer ul li {  float:left; } 
+.stripTransmitter { overflow: auto; width: 1%; background:#cbc8a9; height:28px;} 
+.stripTransmitter ul { margin: 0; padding: 0; position: relative; list-style-type: none; text-align:center;} 
+.stripTransmitter ul li{ width: 20px; display:inline-block; *float:left; _float:left; margin: 7px 1px 0 0; } 
+.stripTransmitter a{ font: bold 10px Verdana, Arial; text-align: center; line-height: 19px; background: #515044; color: #fff; text-decoration: none; display: block; border-radius:50%; width:12px; height:12px; text-indent:-9999px;} 
+.stripTransmitter a:hover, a.current{ background: #dddddd; color: #515044; }
+#tooltip { background: #fff; color: #000; opacity: 0.85; border: 5px solid #dedede; } 
+#tooltip h3 {  font: normal 10px Verdana;  margin: 0;  padding: 6px 2px;  border: 0; } */
+
+.sliderbutton
+{
+    float: left;
+    width: 32px;
+    padding-top: 134px;
+}
+
+.sliderbutton img
+{
+    cursor: pointer;
+}
+
+.sliderbutton img:hover
+{
+    background: #666;
+}
+
+#slider
+{
+    position: relative;
+    overflow: auto;
+    width: 955px;
+    height: 281px;
+    background: #fff;
+}
+
+#slider ul
+{
+    position: absolute;
+    list-style: none;
+    top: 0;
+    left: 0;
+}
+
+#slider li
+{
+    float: left;
+    width: 955px;
+    height: 281px;
+}
+
+.pagination
+{
+    list-style: none;
+    width: 943px;
+    padding: 2px 6px 6px;
+    background: #CBC8A9;
+    margin-bottom: 10px;
+    height: 20px;
+    margin: 1px 0 0;
+    text-align: center;
+}
+
+.pagination li#first
+{
+    /*margin-left: 34%;     margin-left: 32%;*/
+    margin-left: 10%;
+}
+
+.pagination li
+{
+    display: inline;
+    cursor: pointer;
+    background: url('../ScopelistImages/slide_bul-2.png') no-repeat left 2px;
+    margin-right: 20px;
+    padding-left: 15px;
+    text-align: center;
+    font: bold 12px Tahoma, Geneva, sans-serif;
+}
+
+.pagination li:hover, li.current
+{
+    background: url('../ScopelistImages/slide_bul.png') no-repeat left 2px;
+    color: #fff;
+}
+
+li#content
+{
+    width: 955px;
+    height: 230px;
+}
+
+#content h1
+{
+    font: 22px Georgia,Verdana;
+    margin-bottom: 15px;
+    color: #036;
+}
+
+/* --------------------- CSS for main Slider ends --------------------------- */
+
+
+
+
+#tab_holder
+{
+    margin: 35px 0 0;
+}
+
+ul.tabs
+{
+    color: #606060;
+    font-size: 13px;
+    line-height: 31px;
+    margin: 0;
+}
+
+ul.tabs li
+{
+}
+
+ul.tabs li a
+{
+    font-weight: bold;
+    background: url(../images/devider-tabmenu.jpg) no-repeat top right;
+}
+
+ul.tabs li a:hover
+{
+}
+
+ul.tabs li a.current
+{
+    color: #1778ad;
+    background-color: #fff;
+    background-image: none;
+}
+
+ul.tabs li a.last
+{
+    background-image: none;
+}
+
+.tab
+{
+}
+
+ul.tabs
+{
+    height: 33px;
+}
+
+ul.tabs li
+{
+    width: auto;
+    float: left;
+    padding: 0;
+    list-style-type: none;
+    background-image: none;
+}
+
+ul.tabs li:last-child
+{
+    border-right: 1px solid #b0bdca;
+}
+
+ul.tabs li a
+{
+    padding: 1px 20px 0;
+    width: auto;
+    display: block;
+    background: #cbc8a9;
+}
+
+ul.tabs li a:hover
+{
+    width: auto;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+ul.tabs li a.current
+{
+    width: auto;
+    display: block;
+    background: #515044;
+    color: #fff;
+}
+
+ul.tabs li a.last
+{
+}
+
+.tab_info
+{
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e5e3db;
+}
+
+.tab
+{
+}
+
+
+
+.scroller
+{
+    width: 177px;
+    border: 1px solid #e1dfd6;
+    height: 147px;
+    margin: 0 0 10px;
+    display: table-cell;
+    display: block\9;
+    vertical-align: middle;
+}
+
+.scroller img
+{
+    max-width: 170px;
+    max-height: 145px;
+}
+
+.wide .scroller
+{
+    width: 306px;
+    border: 1px solid #e1dfd6;
+    height: 147px;
+    margin: 0 0 10px;
+}
+
+.wide .scroller img
+{
+    max-width: 300px;
+    max-height: 145px;
+}
+
+.scroller_panel ul li
+{
+    width: 179px;
+    margin: 0 15px 0 0;
+    text-align: center;
+    background: none;
+    padding: 0;
+}
+
+.wide ul li
+{
+    width: 308px !important;
+}
+
+.scroller_panel ul li p:first-child
+{
+    color: #515044;
+    font-weight: bold;
+}
+
+.scroller_panel ul li p.price
+{
+    color: #c02400;
+}
+
+/* --------------------------- home page logo slideshow --------------------------- */
+.brands-block .scroller
+{
+    width: auto;
+    border: 1px solid #e1dfd6;
+    margin: 0 0 10px;
+}
+
+.brand-left
+{
+    position: absolute;
+    z-index: 20;
+    left: 1px;
+    top: 1px;
+    height: 71px;
+    overflow: hidden;
+}
+
+.slideshow-wrapper
+{
+    position: relative;
+    padding: 0 0 0;
+    background: url(../images/bg_slide_mini.jpg) 0 0 repeat-x; /*height:226px; */
+    clear: both;
+}
+
+.slideshow-wrapper-inner
+{
+    width: 842px;
+    margin: 0 0 0 110px;
+}
+
+#slideshow
+{
+    position: relative;
+}
+
+#slideshow .slideshow-box
+{
+    width: 809px; /* margin:0 auto !important;*/
+    overflow: hidden;
+    position: relative;
+}
+
+#slideshow ul
+{
+    position: relative;
+}
+
+#slideshow li
+{
+    float: left;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 163px;
+    height: 72px;
+    background-color: #fff;
+    margin: 0;
+}
+
+#slideshow li img
+{
+}
+
+#slideshow a.previous, #slideshow a.next
+{
+    background: url('../ScopelistImages/next.jpg') no-repeat;
+    width: 32px;
+    height: 71px;
+    position: absolute;
+    overflow: hidden;
+    text-indent: -9999px;
+    top: 1px;
+}
+
+#slideshow a.previous
+{
+    left: -27px;
+    background-position: 0 0;
+    display: none;
+}
+
+#slideshow a.next
+{
+    right: 0; /*background-position: 0 100%; */
+}
+
+.slideshow-wrapper2
+{
+    width: 960px;
+    margin: 35px auto 0;
+    background: url(../images/bkg_main.png) center top no-repeat;
+    padding: 10px 0 0;
+}
+
+.slideshow-wrapper-inner2
+{
+    background: url(../images/bkg_main-inner.png) center bottom no-repeat;
+    padding: 0 10px 10px;
+}
+
+#slideshow2
+{
+    position: relative;
+}
+
+#slideshow2 .slideshow-box
+{
+    position: relative;
+    overflow: hidden;
+    height: 369px;
+}
+
+#slideshow2 .slideshow-box ul
+{
+    position: relative;
+}
+
+#slideshow2 .slideshow-box li
+{
+    width: 930px;
+    float: left;
+}
+
+#slideshow2 .navigation
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#slideshow2 .navigation ul li
+{
+    display: inline;
+}
+
+#slideshow2 .navigation ul li a
+{
+    float: left;
+    background: url(../images/i_slideshow-node.gif) 0 0 no-repeat;
+    width: 9px;
+    height: 7px;
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+#slideshow2 .navigation ul li a.active
+{
+    /*background-position:0 100%; *background-position:0 -43px;*/ /*IE 7 dont work if overflow:hidden */
+}
+/*.brands-block .scroller_panel ul li{width:auto; margin:0 6px 0 0; text-align:center; }*/
+/* --------------------------- end of home page logo slideshow =---------------------------- */
+
+
+.jcarousel-skin-tango .jcarousel-container
+{
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl
+{
+    direction: rtl;
+}
+
+.jcarousel-skin-tango .jcarousel-container-horizontal
+{
+    padding: 0;
+}
+
+.jcarousel-skin-tango .jcarousel-container-vertical
+{
+    height: 245px;
+    padding: 40px 20px;
+    width: 75px;
+}
+
+.jcarousel-skin-tango .jcarousel-clip
+{
+    overflow: hidden;
+}
+
+.jcarousel-skin-tango .jcarousel-clip-horizontal
+{
+}
+
+.jcarousel-skin-tango .jcarousel-clip-vertical
+{
+}
+
+.jcarousel-skin-tango .jcarousel-item
+{
+}
+
+.jcarousel-skin-tango .jcarousel-item-horizontal
+{
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal
+{
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.jcarousel-skin-tango .jcarousel-item-vertical
+{
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-tango .jcarousel-item-placeholder
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000000;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal
+{
+    background: transparent url('../ScopelistImages/previous-button.png') no-repeat scroll 0 0 !important;
+    cursor: pointer;
+    height: 85px;
+    right: -2px;
+    position: absolute;
+    top: 30px;
+    width: 37px;
+}
+
+.jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal
+{
+    background: transparent url('../ScopelistImages/next-button.png') no-repeat scroll 0 0 !important;
+    cursor: pointer;
+    height: 46px;
+    right: 5px;
+    position: absolute;
+    top: 43px;
+    width: 37px;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal:hover, .jcarousel-skin-tango .jcarousel-next-horizontal:focus
+{
+    background-position: -32px 0;
+}
+
+.jcarousel-skin-tango .jcarousel-next-horizontal:active
+{
+    background-position: -64px 0;
+}
+
+.jcarousel-skin-tango .jcarousel-next-disabled-horizontal, .jcarousel-skin-tango .jcarousel-next-disabled-horizontal:hover, .jcarousel-skin-tango .jcarousel-next-disabled-horizontal:focus, .jcarousel-skin-tango .jcarousel-next-disabled-horizontal:active
+{
+    background-position: -96px 0;
+    cursor: default;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal
+{
+    background: transparent url('../ScopelistImages/next-button.png') no-repeat scroll 0 0 !important;
+    cursor: pointer;
+    height: 85px;
+    position: absolute;
+    left: 2px;
+    top: 30px;
+    width: 37px;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal:hover, .jcarousel-skin-tango .jcarousel-prev-horizontal:focus
+{
+    background-position: -32px 0;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-horizontal:active
+{
+    background-position: -64px 0;
+}
+
+.jcarousel-skin-tango .jcarousel-prev-disabled-horizontal, .jcarousel-skin-tango .jcarousel-prev-disabled-horizontal:hover, .jcarousel-skin-tango .jcarousel-prev-disabled-horizontal:focus, .jcarousel-skin-tango .jcarousel-prev-disabled-horizontal:active
+{
+    background-position: -96px 0;
+    cursor: default;
+}
+
+
+.banner_panel .jcarousel-next-horizontal, .banner_panel .jcarousel-prev-horizontal
+{
+    display: none !important;
+}
+
+.banner_panel .jcarousel-skin-tango .jcarousel-item-horizontal
+{
+    margin-left: 0;
+    margin-right: 1px;
+}
+
+
+/******************* styles for table header **************************/
+
+.tableHeader
+{
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC !important;
+    text-align: left;
+    font-weight: bold;
+}
+
+
+.liststyle
+{
+    background: none !important;
+    padding: 0px !important;
+    height: 20px;
+}
+/******************** end of styles for table header *****************/
+
+
+/******************* start of styles for simple table in order details ***********************/
+
+.dvOuterSummary
+{
+    border-bottom: 1px solid #e1dfd6;
+    margin-bottom: 12px;
+}
+
+.dvInnerSummaryLeft
+{
+    width: 50%;
+    border-top: 1px solid #e1dfd6;
+    border-left: 1px solid #e1dfd6;
+    float: left;
+}
+
+.dvInnerSummaryRight
+{
+    text-align: right;
+    border-right: 1px solid #e1dfd6;
+    border-top: 1px solid #e1dfd6;
+    border-left: 0 solid #e1dfd6;
+}
+
+
+/******************* end of styles for simple table in order details ***********************/
+
+
+/**********************start of style for mailing lists ************************************/
+
+.name
+{
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 0 10px;
+}
+
+
+h2.normal-h2
+{
+    background: none repeat scroll 0 0 transparent;
+    margin-top: 5px;
+    padding: 0;
+}
+
+/*
+
+.error_panel
+{
+    background: none repeat scroll 0 0 #FFF9EE;
+    clear: both;
+    float: left; 
+    width: 100%;
+}
+
+.error_panel .blk_er2
+{
+    border: 1px solid #DD4E00;
+    overflow: hidden;
+    padding: 6px;
+}
+
+
+.error_panel .blk_er2 ul li
+{
+    background: transparent url('../ScopelistImages/error_cross.png') no-repeat scroll left 5px;
+    color: #DD0000 !important;
+    font-size: 12px;
+    line-height: 14px;
+    padding-bottom: 5px !important;
+    padding-left: 10px;
+}
+
+.error_panel ul li
+{
+    background: transparent url('../ScopelistImages/error_cross.png') no-repeat scroll left 5px;
+    padding-left: 33px;
+    padding-top: 9px;
+    margin-left: 5px;
+}
+
+
+*/
+
+
+
+/**********************start of style for mailing lists ************************************/
+
+
+
+.my-pagination
+{
+    padding: 10px 0;
+}
+.my-pagination ul
+{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.my-pagination ul li
+{
+    display: inline;
+    background-image: none;
+    padding: 0;
+    margin: 0;
+}
+.my-pagination ul li a
+{
+    padding: 2px 4px; /* background:#E0DECB;*/
+}
+.my-pagination ul li.first a
+{
+    /*background:#CBC8A9;*/
+    text-decoration: none;
+}
+.my-pagination ul li.last a
+{
+    /*background:#CBC8A9;*/
+    text-decoration: none;
+}
+.my-pagination ul li a:hover
+{
+    background: #515044;
+    text-decoration: none;
+    color: #E0DECB;
+}
+.my-pagination ul li.active a
+{
+    background: #515044;
+    text-decoration: none;
+    color: #E0DECB;
+}
+
+.container-liquide
+{
+    margin: 20px 30px 30px;
+    padding: 12px;
+    background: #fff;
+}
+
+.center-box
+{
+    margin: 0 auto;
+}
+
+.icon-zoom
+{
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    z-index: 10;
+}
+
+
+.product-block-small .social-share
+{
+    bottom: -35px;
+    padding: 6px 0 0;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

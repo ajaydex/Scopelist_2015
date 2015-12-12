@@ -1,0 +1,815 @@
+﻿Imports System.Collections.Generic
+Imports System.Collections.ObjectModel
+Imports System.IO
+Imports System.Linq
+Imports BVSoftware.Bvc5.Core
+Imports System.Data
+
+Partial Class BVModules_CategoryTemplates_Scopelist_Filter_Category
+    Inherits BaseStoreCategoryPage
+
+    Private _AllCats As Collection(Of Catalog.Category) = Nothing
+    Dim pricingWorkflow As BusinessRules.Workflow = Nothing
+    Shared allProducts As List(Of Catalog.Product) = Nothing
+    Private _productSearchCriteria As ProductSearchCriteria = Nothing
+    Dim allManufacturerBvins As String = String.Empty
+    Shared categoryManufacturers As List(Of String) = New List(Of String)
+
+    Public Property ProductSearchCriteriaCustom() As ProductSearchCriteria
+        Get
+            If Session("CategorySearchCriteria" & Me.LocalCategory.Bvin) IsNot Nothing Then
+                _productSearchCriteria = DirectCast(Session("CategorySearchCriteria" & Me.LocalCategory.Bvin), ProductSearchCriteria)
+            End If
+
+            If _productSearchCriteria IsNot Nothing Then
+                If Me.LocalCategory IsNot Nothing Then
+                    _productSearchCriteria.CategoryId = Me.LocalCategory.Bvin
+                End If
+            End If
+
+            Return _productSearchCriteria
+        End Get
+        Set(ByVal value As ProductSearchCriteria)
+            _productSearchCriteria = value
+            If (Me.LocalCategory IsNot Nothing) Then
+                Session("CategorySearchCriteria" & Me.LocalCategory.Bvin) = value
+            End If
+        End Set
+    End Property
+
+    Protected Sub Page_PreInit1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreInit
+        Me.MasterPageFile = PersonalizationServices.GetSafeMasterPage("NewCategory.master")
+        Me.BlockId = "D2D63F6A-2480-42a1-A593-FCFA83A2C8B8"
+    End Sub
+
+    Protected Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
+        If LocalCategory.PreContentColumnId <> String.Empty Then
+            Me.PreContentColumn.ColumnID = LocalCategory.PreContentColumnId
+            Me.PreContentColumn.LoadColumn()
+        End If
+        If LocalCategory.PostContentColumnId <> String.Empty Then
+            Me.PostContentColumn.ColumnID = LocalCategory.PostContentColumnId
+            Me.PostContentColumn.LoadColumn()
+        End If
+    End Sub
+
+    Protected Sub PageLoad(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Page.IsPostBack Then
+
+            If LocalCategory IsNot Nothing Then
+
+                'If allProducts Is Nothing Then
+                '    _AllCats = Catalog.Category.FindAll()
+                '    Dim cats As Collection(Of Catalog.Category) = Catalog.Category.FindChildrenInCollection(_AllCats, LocalCategory.Bvin, False)
+                '    If cats.Count > 0 Then
+                '        allProducts = New List(Of Catalog.Product)
+                '        For Each c In cats
+                '            Dim ps As New Catalog.ProductSearchCriteria
+                '            ps.CategoryId = c.Bvin
+                '            allProducts.AddRange(Catalog.Product.FindByCriteria(ps).ToList())
+                '            categoryManufacturers.Add(Catalog.Product.FindByCriteria(ps).ToList()(0).ManufacturerId)
+                '            'Response.Write("L")
+                '        Next
+                '    End If
+                'End If
+
+                _AllCats = Catalog.Category.FindAll()
+                Dim cats As Collection(Of Catalog.Category) = Catalog.Category.FindChildrenInCollection(_AllCats, LocalCategory.Bvin, False)
+                Dim catIds As String = String.Empty
+                If cats.Count > 0 Then
+                    For Each c In cats
+                        Dim ps As New Catalog.ProductSearchCriteria
+                        ps.CategoryId = c.Bvin
+                        catIds = catIds & "," & c.Bvin
+                        categoryManufacturers.Add(Catalog.Product.FindByCriteria(ps).ToList()(0).ManufacturerId)
+                    Next
+                End If
+
+                Dim displayProducts As Collection(Of Catalog.Product) = Nothing
+
+                Dim rowCount As Integer = 0
+
+                Dim productSearchCriteria As New Catalog.ProductSearchCriteria
+                productSearchCriteria.CategoryId = catIds
+                productSearchCriteria.SortOrder = Me.SortOrder
+                Me.ProductSearchCriteria = productSearchCriteria
+
+                If Me.ProductSearchCriteria IsNot Nothing Then
+                    displayProducts = FindProductByCriteria(Me.ProductSearchCriteria, WebAppSettings.DisableInventory, False, 0, 1000, rowCount)
+                Else
+                    displayProducts = LocalCategory.FindAllProducts(Me.SortOrder, WebAppSettings.DisableInventory, False, 0, 100, rowCount)
+                End If
+
+                BindManufacturers()
+
+                'Response.Write("count" & allProducts.Count)
+
+                'code to hide left menu dynamically only for fathers day
+                Dim rightDiv As HtmlGenericControl = Me.Master.FindControl("bigColumn")
+                rightDiv.Attributes.Add("class", "one-column")
+
+                Dim itemsPerPage As Integer = Me.SettingsManager.GetIntegerSetting("ItemsPerPage")
+                If itemsPerPage = 0 Then
+                    itemsPerPage = 6
+                End If
+
+                Pager1.ItemsPerPage = itemsPerPage
+                Pager2.ItemsPerPage = itemsPerPage
+
+                PopulateCategoryInfo()
+
+                Me.ProductSearchCriteriaCustom = GetProductSearchCriteria()
+
+                BindProducts()
+
+                lblSubCategoriesHeading.Text = LocalCategory.Name & " Categories"
+
+                LoadSubCategories()
+            End If
+        End If
+
+    End Sub
+
+    Private Sub LoadSubCategories()
+        _AllCats = Catalog.Category.FindAll()
+        Dim cats As Collection(Of Catalog.Category) = Catalog.Category.FindChildrenInCollection(_AllCats, LocalCategory.Bvin, False)
+        If cats.Count > 0 Then
+            ltlSubHeadingStart.Visible = True
+            ltlSubHeadingEnd.Visible = True
+            lblSubCategoriesHeading.Visible = True
+        End If
+        Me.DataList2.DataSource = cats
+        Me.DataList2.DataBind()
+    End Sub
+
+    Public Sub PopulateCategoryInfo()
+
+        ' Page Title
+        If LocalCategory.MetaTitle.Trim.Length > 0 Then
+            Me.PageTitle = LocalCategory.MetaTitle
+        Else
+            Me.PageTitle = LocalCategory.Name
+        End If
+
+        ' Meta Keywords
+        If LocalCategory.MetaKeywords.Trim.Length > 0 Then
+            CType(Page, BaseStorePage).MetaKeywords = LocalCategory.MetaKeywords
+        Else
+            CType(Page, BaseStorePage).MetaKeywords = LocalCategory.Name
+        End If
+
+
+        ' Meta Description
+        If LocalCategory.MetaDescription.Trim.Length > 0 Then
+            CType(Page, BaseStorePage).MetaDescription = LocalCategory.MetaDescription
+            If (Pager1.CurrentPage > 1) Then
+                CType(Page, BaseStorePage).MetaDescription += " Page " & Pager1.CurrentPage.ToString()
+                Me.PageTitle += " Page " & Pager1.CurrentPage.ToString()
+            End If
+        End If
+
+        ' Title
+        If LocalCategory.ShowTitle = False Then
+            Me.lblTitle.Visible = False
+            Me.lblTitle3.Visible = False
+        Else
+            Me.lblTitle.Visible = True
+            Me.lblTitle.Text = LocalCategory.Name
+            Me.lblTitle3.Visible = True
+            Me.lblTitle3.Text = "Best Selling " & LocalCategory.Name
+        End If
+
+
+        If LocalCategory.BannerImageUrl.Trim.Length > 0 Then
+            Me.BannerImage.Visible = True
+            Me.BannerImage.ImageUrl = Page.ResolveUrl(Utilities.ImageHelper.GetValidImage(LocalCategory.BannerImageUrl, True))
+            Me.BannerImage.AlternateText = LocalCategory.Name
+        Else
+            Me.BannerImage.Visible = False
+        End If
+
+        'Description
+
+        If LocalCategory.Description.Trim.Length > 0 Then
+
+            Dim s As StringBuilder = New StringBuilder()
+            s.Append(LocalCategory.Description)
+            s.Replace("<a", "<a class='RightBlockHeading'")
+            s.Replace("<ul>", "<ul class='desc'>")
+
+            Dim str As String = s.ToString()
+            If (str.Length > 600) Then
+                Dim indexOfFullStop As Integer = str.IndexOf(". ", 600)
+                If indexOfFullStop <> -1 Then
+                    Me.DescriptionLiteral.Text = str.Substring(0, indexOfFullStop + 2)
+                    Me.DescriptionLiteralHidden.Text = str.Substring(indexOfFullStop + 2, str.Length - (indexOfFullStop + 2))
+                Else
+                    Me.DescriptionLiteral.Text = str
+                    Me.ShowHideButton.Style("display") = "none"
+                End If
+            Else
+                Me.DescriptionLiteral.Text = str
+                Me.ShowHideButton.Style("display") = "none"
+            End If
+        Else
+            'Me.ShowHideButton.Style("display") = "none"
+            Me.DescriptionLiteral.Text = String.Empty
+        End If
+
+    End Sub
+
+    Protected Sub DataList2_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.DataListItemEventArgs) Handles DataList2.ItemDataBound
+        If e.Item.ItemType = ListItemType.Item Or e.Item.ItemType = ListItemType.AlternatingItem Then
+            Dim c As Catalog.Category = CType(e.Item.DataItem, Catalog.Category)
+            If c IsNot Nothing Then
+
+                'Dim litRecord As Literal = e.Item.FindControl("litRecord")
+                'If litRecord IsNot Nothing Then
+
+                Dim destinationLink As String = Utilities.UrlRewriter.BuildUrlForCategory(c, Me.Page, _AllCats)
+
+                'Name
+                Dim nameAnchor As HtmlAnchor = DirectCast(e.Item.FindControl("recordnameanchor"), HtmlAnchor)
+                nameAnchor.HRef = destinationLink
+
+                Dim imageUrl As String
+
+                If Not c.ImageUrl Is Nothing Then
+                    imageUrl = Page.ResolveUrl(Utilities.ImageHelper.GetValidImage(c.ImageUrl, True))
+                    nameAnchor.InnerHtml = "<img src=""" & ResolveUrl(c.ImageUrl) & """ width=""181"" height=""106"" alt=""" & c.Name & """ />" & c.Name
+                End If
+
+                nameAnchor.Title = c.Name
+
+                'Dim CatTitle As HtmlAnchor = DirectCast(e.Item.FindControl("CatTitle"), HtmlAnchor)
+                'CatTitle.InnerHtml = c.Name
+                'CatTitle.HRef = destinationLink
+
+
+                'Dim imgCategoryLogo As Image = DirectCast(e.Item.FindControl("imgCategoryLogo"), Image)
+                'imgCategoryLogo.ImageUrl = Page.ResolveUrl("~/" & LocalCategory.ImageUrl)
+
+                'Else
+                '    litRecord.Text = "Product could not be located"
+                'End If
+
+
+                Dim imgLogo As Image = DirectCast(e.Item.FindControl("imgCategoryLogo"), Image)
+                If Not LocalCategory.MenuOnImageUrl Is Nothing Then
+                    If File.Exists(Server.MapPath("~" & LocalCategory.MenuOnImageUrl)) Then
+                        imgLogo.ImageUrl = Page.ResolveUrl("~" + LocalCategory.MenuOnImageUrl)
+                        imgLogo.ToolTip = LocalCategory.Name
+                        imgLogo.AlternateText = LocalCategory.Name
+                    Else
+                        'imgLogo.Attributes.Add("style", "display:none;")
+                        imgLogo.Visible = False
+                    End If
+                Else
+                    'imgLogo.Attributes.Add("style", "display:none;")
+                    imgLogo.Visible = False
+                End If
+            End If
+        End If
+    End Sub
+
+    Protected Sub DataList1_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.DataListItemEventArgs) Handles DataList1.ItemDataBound
+        If e.Item.ItemType = ListItemType.Item Or e.Item.ItemType = ListItemType.AlternatingItem Then
+            Dim p As Catalog.Product = CType(e.Item.DataItem, Catalog.Product)
+            If p IsNot Nothing Then
+                Dim destinationLink As String = Utilities.UrlRewriter.BuildUrlForProduct(p, Me.Page.Request)
+                Dim imageUrl As String
+                imageUrl = Page.ResolveUrl(Utilities.ImageHelper.GetValidImage(p.ImageFileSmall, True))
+
+                Dim anchor As HtmlAnchor = DirectCast(e.Item.FindControl("recordimageanchor"), HtmlAnchor)
+                anchor.HRef = destinationLink
+                anchor.Title = p.ProductName
+                anchor.InnerHtml = "<img src=""" & ResolveUrl(imageUrl) & """ width=""181"" height=""106"" alt=""" & p.ProductName & """ />" & "<p style='text-align:center;padding-bottom: 0px;'>" & p.ProductName & "</p>"
+
+                'Dim imgLogo As Image = DirectCast(e.Item.FindControl("imgLogo"), Image)
+                'imgLogo.ImageUrl = Page.ResolveUrl("~/Images/icon/" + GetProductManufacturer(p) + ".jpg")
+                'imgLogo.ToolTip = GetProductManufacturer(p)
+                'imgLogo.AlternateText = GetProductManufacturer(p)
+
+                'Dim lnkOffer As HyperLink = DirectCast(e.Item.FindControl("lnkOffer"), HyperLink)
+                'lnkOffer.ToolTip = p.ProductName
+                'lnkOffer.NavigateUrl = destinationLink
+                'lnkOffer.Text = "Buy Now"
+
+                Dim IsBannerDisplay As Boolean = True
+                Dim ManufacturerName As String = GetProductManufacturer(p)
+                Dim BrandsToExclude As String()
+                BrandsToExclude = Content.SiteTerms.GetTerm("ExcludedBrandName").Split(",")
+
+                For Each m In BrandsToExclude
+                    If ManufacturerName.Contains(m) Then
+                        IsBannerDisplay = False
+                    End If
+                Next
+
+                'If Not Content.SiteTerms.GetTerm("EnableBanner") Is Nothing And Content.SiteTerms.GetTerm("EnableBanner") <> String.Empty Then
+                '    If Not Content.SiteTerms.GetTerm("ExcludedBrandName") Is Nothing And Content.SiteTerms.GetTerm("ExcludedBrandName") <> String.Empty And IsBannerDisplay Then
+                '        If Boolean.Parse(Content.SiteTerms.GetTerm("EnableBanner")) Then
+                '            lnkOffer.Text = "Make an Offer"
+                '        Else
+                '            lnkOffer.Text = "Buy Now"
+                '        End If
+                '    Else
+                '        lnkOffer.Text = "Buy Now"
+                '    End If
+                'Else
+                '    lnkOffer.Text = "Buy Now"
+                'End If
+
+                'Dim ProductImage As HtmlImage = DirectCast(e.Item.FindControl("ProductImage"), HtmlImage)
+                'ProductImage.Src = imageUrl
+                'ProductImage.Alt = p.ProductName & " " & p.Sku
+
+                ' Force Image Size
+                'ViewUtilities.ForceImageSize(ProductImage, p.ImageFileSmall, ViewUtilities.Sizes.Small, Me.Page)
+
+                If p.ProductTypeId <> String.Empty AndAlso p.ManufacturerId <> String.Empty Then
+                    Dim t As Catalog.ProductType = Catalog.ProductType.FindByBvin(p.ProductTypeId)
+                    Dim m As Contacts.Manufacturer = Contacts.Manufacturer.FindByBvin(p.ManufacturerId)
+                    If t IsNot Nothing And m IsNot Nothing Then
+
+                        Dim litReview As Web.UI.WebControls.Literal = DirectCast(e.Item.FindControl("reviewtitlefield"), Literal)
+                        If litReview IsNot Nothing Then
+                            litReview.Text = m.DisplayName & " " & t.ProductTypeName & " Review"
+                        End If
+
+                    End If
+                End If
+
+                'to display stock status to client
+                Dim lblStockStatusGrid As Label = DirectCast(e.Item.FindControl("lblStockStatusGrid"), Label)
+
+                If p.IsInStock Then
+                    lblStockStatusGrid.Text = "In Stock"
+                Else
+                    lblStockStatusGrid.Text = "Back Order"
+                End If
+
+                Dim ltlPrice As Literal
+                ltlPrice = DirectCast(e.Item.FindControl("ltlPrice"), Literal)
+                ltlPrice.Text = p.GetSitePriceForDisplay(0D, pricingWorkflow)
+            Else
+                Dim NameAnchor As HtmlAnchor = DirectCast(e.Item.FindControl("NameAnchor"), HtmlAnchor)
+                NameAnchor.InnerHtml = "Product Could Not Be Located."
+            End If
+        End If
+    End Sub
+
+    Protected Sub Page_PreRender(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRender
+        If Pager1.Visible Then
+            Select Case DirectCast(Me.SettingsManager.GetIntegerSetting("PagerMode"), Controls.PagerModes)
+                Case BVSoftware.Bvc5.Core.Controls.PagerModes.Top
+                    Pager1.Visible = True
+                    Pager2.Visible = False
+                Case BVSoftware.Bvc5.Core.Controls.PagerModes.Bottom
+                    Pager1.Visible = False
+                    Pager2.Visible = True
+                Case BVSoftware.Bvc5.Core.Controls.PagerModes.Both
+                    Pager1.Visible = True
+                    Pager2.Visible = True
+            End Select
+        End If
+    End Sub
+
+    Protected Function GetProductManufacturer(ByRef p As Catalog.Product) As String
+        Dim result As String = String.Empty
+
+        If Not String.IsNullOrEmpty(p.ManufacturerId) AndAlso p.ManufacturerId <> "- No Manufacturer -" Then
+            Dim m As Contacts.Manufacturer = Contacts.Manufacturer.FindByBvin(p.ManufacturerId)
+            If m IsNot Nothing AndAlso Not String.IsNullOrEmpty(m.Bvin) Then
+                result = m.DisplayName
+            End If
+        End If
+
+        Return result
+    End Function
+
+    'Protected Function GetProducts(ByVal sortOrder As Catalog.CategorySortOrder,
+    '                              ByVal ignoreInventory As Boolean,
+    '                              ByVal showInactive As Boolean,
+    '                              ByVal startRowIndex As Integer,
+    '                              ByVal maimumRows As Integer,
+    '                              ByVal displaySortOrder As Boolean,
+    '                              ByRef rowCount As Integer) As List(Of Catalog.Product)
+
+    Protected Function GetProducts(ByRef rowCount As Integer) As List(Of Catalog.Product)
+
+        Dim lstFilteredProducts As List(Of Catalog.Product) = New List(Of Catalog.Product)
+
+        Dim psc As New ProductSearchCriteria
+        psc = Me.ProductSearchCriteriaCustom
+
+        lstFilteredProducts = allProducts.Where(Function(p) p.Status = Catalog.ProductStatus.Active).ToList()
+
+        If Not psc Is Nothing Then
+            If Not String.IsNullOrEmpty(psc.ManufacturerIds) Then
+                lstFilteredProducts = lstFilteredProducts.Where(Function(p) psc.ManufacturerIds.Contains(p.ManufacturerId)).ToList()
+            End If
+
+            If psc.MinPrice <> -1D And psc.MaxPrice <> -1D Then
+                lstFilteredProducts = lstFilteredProducts.Where(Function(p) p.SitePrice >= psc.MinPrice And p.SitePrice <= psc.MaxPrice).ToList()
+            End If
+
+
+            If psc.ProductSortOrder = "1" Then
+                lstFilteredProducts = lstFilteredProducts.OrderByDescending(Function(p) p.SitePrice).ToList()
+            ElseIf psc.ProductSortOrder = "2" Then
+                lstFilteredProducts = lstFilteredProducts.OrderBy(Function(p) p.SitePrice).ToList()
+            ElseIf psc.ProductSortOrder = "3" Then
+                lstFilteredProducts = lstFilteredProducts.OrderBy(Function(p) p.ProductName).ThenByDescending(Function(p) p.CreationDate).ToList()
+            ElseIf psc.ProductSortOrder = "4" Then
+                lstFilteredProducts = lstFilteredProducts.OrderByDescending(Function(p) p.ProductName).ToList()
+            Else
+                lstFilteredProducts = lstFilteredProducts.OrderByDescending(Function(p) p.IsInStock).ToList()
+            End If
+        Else
+            lstFilteredProducts = lstFilteredProducts.OrderByDescending(Function(p) p.IsInStock).ToList()
+        End If
+
+        rowCount = lstFilteredProducts.Count
+
+        lstFilteredProducts = lstFilteredProducts.Skip(Pager1.CurrentRow).Take(Pager1.ItemsPerPage).ToList()
+
+        If Pager1.CurrentRow = 0 Then
+            lblItemsCOunt.Text = "Results " & Pager1.CurrentRow & " - " & If(rowCount < Pager1.ItemsPerPage, rowCount, Pager1.ItemsPerPage) & " of " & rowCount
+        Else
+            lblItemsCOunt.Text = "Results " & Pager1.CurrentRow & " - " & If((Pager1.ItemsPerPage + Pager1.CurrentRow) > rowCount, rowCount, Pager1.ItemsPerPage + Pager1.CurrentRow) & " of " & rowCount
+        End If
+
+        Return lstFilteredProducts
+    End Function
+
+    Protected Sub btnGO_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnGO.Click
+
+        Me.ProductSearchCriteriaCustom = GetProductSearchCriteria()
+
+        Dim itemsPerPage As Integer = Me.SettingsManager.GetIntegerSetting("ItemsPerPage")
+        If itemsPerPage = 0 Then
+            itemsPerPage = 6
+        End If
+
+        Pager1.ItemsPerPage = itemsPerPage
+        Pager2.ItemsPerPage = itemsPerPage
+
+        BindProducts()
+
+    End Sub
+
+    Protected Sub BindProducts()
+
+        Dim rowCount As Integer = 0
+
+        pricingWorkflow = BusinessRules.Workflow.FindByName("Product Pricing")
+
+        Dim displayProducts As List(Of Catalog.Product) = Nothing
+
+        'displayProducts = GetProducts(
+        '                                              Me.SortOrder,
+        '                                              WebAppSettings.DisableInventory,
+        '                                              False,
+        '                                              0, 100, LocalCategory.DisplaySortOrder, rowCount)
+
+        displayProducts = GetProducts(rowCount)
+
+        Me.DataList1.DataSource = displayProducts
+        Me.DataList1.DataBind()
+
+        Pager1.RowCount = rowCount
+        Pager2.RowCount = rowCount
+
+    End Sub
+
+    Protected Sub BindManufacturers()
+        'For Each Str As String In categoryManufacturers
+        '    Response.Write(Str)
+        'Next
+
+        ddlManufacturerIds.DataSource = Contacts.Manufacturer.FindAll().Where(Function(m) categoryManufacturers.Contains(m.Bvin)).Select(Function(m) m).ToList()
+        'dlManufacturerIds.DataSource = Contacts.Manufacturer.FindAll()
+        ddlManufacturerIds.DataTextField = "DisplayName"
+        ddlManufacturerIds.DataValueField = "Bvin"
+        ddlManufacturerIds.DataBind()
+    End Sub
+
+    Protected Function GetProductSearchCriteria() As ProductSearchCriteria
+
+        Dim productSearchCriteria As New ProductSearchCriteria
+
+        If String.IsNullOrEmpty(ddlManufacturerIds.SelectedValue) Then
+            If Not Me.ProductSearchCriteriaCustom Is Nothing Then
+                productSearchCriteria.ManufacturerIds = Me.ProductSearchCriteriaCustom.ManufacturerIds
+                'Response.Write(productSearchCriteria.ManufacturerIds)
+            Else
+                'productSearchCriteria.ManufacturerIds = ddlManufacturerIds.SelectedValue
+                Dim str As String = String.Empty
+                For Each i As ListItem In Me.ddlManufacturerIds.Items
+                    If i.Selected Then
+                        str = str & "," & i.Value
+                    End If
+                Next
+                productSearchCriteria.ManufacturerIds = str
+            End If
+        Else
+            'productSearchCriteria.ManufacturerIds = ddlManufacturerIds.SelectedValue
+
+            Dim str As String = String.Empty
+            For Each i As ListItem In Me.ddlManufacturerIds.Items
+                If i.Selected Then
+                    str = str & "," & i.Value
+                End If
+            Next
+            productSearchCriteria.ManufacturerIds = str
+        End If
+
+        If Not String.IsNullOrEmpty(txtMinPrice.Text) Then
+            productSearchCriteria.MinPrice = Convert.ToDecimal(txtMinPrice.Text)
+        Else
+            If Not Me.ProductSearchCriteriaCustom Is Nothing Then
+                productSearchCriteria.MinPrice = Me.ProductSearchCriteriaCustom.MinPrice
+            Else
+                productSearchCriteria.MinPrice = -1D
+            End If
+        End If
+
+        If Not String.IsNullOrEmpty(txtMaxPrice.Text) Then
+            productSearchCriteria.MaxPrice = Convert.ToDecimal(txtMaxPrice.Text)
+        Else
+            If Not Me.ProductSearchCriteriaCustom Is Nothing Then
+                productSearchCriteria.MaxPrice = Me.ProductSearchCriteriaCustom.MaxPrice
+            Else
+                productSearchCriteria.MaxPrice = -1D
+            End If
+        End If
+
+        If Not String.IsNullOrEmpty(ddlPrices.SelectedValue) And ddlPrices.SelectedValue <> 0 Then
+            If ddlPrices.SelectedValue = "1" Then
+                productSearchCriteria.ProductSortOrder = 1
+            ElseIf ddlPrices.SelectedValue = "2" Then
+                productSearchCriteria.ProductSortOrder = 2
+            ElseIf ddlPrices.SelectedValue = "3" Then
+                productSearchCriteria.ProductSortOrder = 3
+            ElseIf ddlPrices.SelectedValue = "4" Then
+                productSearchCriteria.ProductSortOrder = 4
+            End If
+        ElseIf Not ProductSearchCriteriaCustom Is Nothing Then
+            productSearchCriteria.ProductSortOrder = Me.ProductSearchCriteriaCustom.ProductSortOrder
+        Else
+            productSearchCriteria.ProductSortOrder = 0
+        End If
+
+        'Dim number As Integer = If(ddlPrices.SelectedValue = String.Empty, 2, Integer.Parse(ddlPrices.SelectedValue))
+        'productSearchCriteria.ProductSortOrder = number
+
+        Return productSearchCriteria
+
+    End Function
+
+    Protected Sub ddlManufacturerIds_SelcetedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlManufacturerIds.SelectedIndexChanged
+
+        Me.ProductSearchCriteriaCustom = GetProductSearchCriteria()
+
+        Dim itemsPerPage As Integer = Me.SettingsManager.GetIntegerSetting("ItemsPerPage")
+        If itemsPerPage = 0 Then
+            itemsPerPage = 6
+        End If
+
+        Pager1.ItemsPerPage = itemsPerPage
+        Pager2.ItemsPerPage = itemsPerPage
+
+        BindProducts()
+
+    End Sub
+
+    Protected Sub ddlPrices_SelcetedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlPrices.SelectedIndexChanged
+
+        Me.ProductSearchCriteriaCustom = GetProductSearchCriteria()
+
+        Dim itemsPerPage As Integer = Me.SettingsManager.GetIntegerSetting("ItemsPerPage")
+        If itemsPerPage = 0 Then
+            itemsPerPage = 6
+        End If
+
+        Pager1.ItemsPerPage = itemsPerPage
+        Pager2.ItemsPerPage = itemsPerPage
+
+        BindProducts()
+
+    End Sub
+
+    Protected Sub btnClearFilter_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnClearFilter.Click
+
+        txtMaxPrice.Text = String.Empty
+        txtMinPrice.Text = String.Empty
+        ddlManufacturerIds.ClearSelection()
+        ddlPrices.SelectedValue = "0"
+
+        Me.ProductSearchCriteriaCustom = Nothing
+
+        Dim itemsPerPage As Integer = Me.SettingsManager.GetIntegerSetting("ItemsPerPage")
+        If itemsPerPage = 0 Then
+            itemsPerPage = 6
+        End If
+
+        Pager1.ItemsPerPage = itemsPerPage
+        Pager2.ItemsPerPage = itemsPerPage
+
+        BindProducts()
+    End Sub
+
+    Public Shared Function FindProductByCriteria(ByVal criteria As Catalog.ProductSearchCriteria, ByVal ignoreInventory As Boolean, ByVal showInactive As Boolean, ByVal startRowIndex As Integer, ByVal maximumRows As Integer, ByRef rowCount As Integer) As Collection(Of Catalog.Product)
+        Dim result As New Collection(Of Catalog.Product)
+
+        Dim request As New Datalayer.DataRequest
+        request.Command = "bvc_Product_ByCategories_s"
+        request.CommandType = CommandType.StoredProcedure
+        criteria.AddParametersToRequest(request)
+        request.Transactional = False
+
+
+        Dim ds As DataSet
+        ds = Datalayer.SqlDataHelper.ExecuteDataSet(request, startRowIndex, maximumRows, rowCount)
+        If Not ds Is Nothing Then
+            If ds.Tables.Count() > 0 Then
+
+                Dim max As Integer = Integer.MaxValue
+                If (SessionManager.IsLicenseValid = False) Then
+                    max = 10
+                End If
+                If (ds.Tables(0).Rows.Count < max) Then
+                    max = ds.Tables(0).Rows.Count
+                End If
+
+                For i As Integer = 0 To max - 1
+                    result.Add(ConvertDataRow(ds.Tables(0).Rows(i)))
+                Next
+            End If
+        End If
+
+        Return result
+    End Function
+
+    <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")> _
+    Protected Friend Shared Function ConvertDataRow(ByVal dr As DataRow) As Catalog.Product
+        Dim p As New Catalog.Product
+
+        If dr IsNot Nothing Then
+            With dr
+                p.Bvin = CType(.Item("bvin"), String)
+                p.Sku = CType(.Item("SKU"), String)
+                p.ProductName = CType(.Item("ProductName"), String)
+                p.ProductTypeId = CType(.Item("ProductTypeID"), String)
+                If .IsNull("ListPrice") = False Then
+                    p.ListPrice = CType(.Item("ListPrice"), Decimal)
+                End If
+                If .IsNull("SitePrice") = False Then
+                    p.SitePrice = CType(.Item("SitePrice"), Decimal)
+                End If
+                If .IsNull("SiteCost") = False Then
+                    p.SiteCost = CType(.Item("SiteCost"), Decimal)
+                End If
+                p.MetaKeywords = CType(.Item("MetaKeywords"), String)
+                p.MetaDescription = CType(.Item("MetaDescription"), String)
+                p.MetaTitle = CType(.Item("MetaTitle"), String)
+                If CType(.Item("TaxExempt"), Integer) = 1 Then
+                    p.TaxExempt = True
+                Else
+                    p.TaxExempt = False
+                End If
+                p.TaxClass = CType(.Item("TaxClass"), String)
+                If CType(.Item("NonShipping"), Integer) = 1 Then
+                    p.NonShipping = True
+                Else
+                    p.NonShipping = False
+                End If
+                If CType(.Item("ShipSeparately"), Integer) = 1 Then
+                    p.ShipSeparately = True
+                Else
+                    p.ShipSeparately = False
+                End If
+                p.ShippingMode = CType(.Item("ShippingMode"), Shipping.ShippingMode)
+                p.ShippingWeight = CType(.Item("ShippingWeight"), Decimal)
+                p.ShippingLength = CType(.Item("ShippingLength"), Decimal)
+                p.ShippingWidth = CType(.Item("ShippingWidth"), Decimal)
+                p.ShippingHeight = CType(.Item("ShippingHeight"), Decimal)
+                p.Status = CType(.Item("Status"), Catalog.ProductStatus)
+                p.ImageFileSmall = CType(.Item("ImageFileSmall"), String)
+                p.ImageFileMedium = CType(.Item("ImageFileMedium"), String)
+                p.ImageFileSmallAlternateText = CType(.Item("SmallImageAlternateText"), String)
+                p.ImageFileMediumAlternateText = CType(.Item("MediumImageAlternateText"), String)
+                Try
+                    p.CreationDate = CType(.Item("CreationDate"), DateTime)
+                Catch ex As Exception
+                    p.CreationDate = Date.Now
+                End Try
+                p.MinimumQty = CType(.Item("MinimumQty"), Integer)
+                p.ParentId = CType(.Item("ParentID"), String)
+                p.VariantDisplay = CType(.Item("VariantDisplayMode"), Catalog.VariantDisplayMode)
+                p.ShortDescription = CType(.Item("ShortDescription"), String)
+                p.LongDescription = CType(.Item("LongDescription"), String)
+                p.ManufacturerId = CType(.Item("ManufacturerID"), String)
+                p.VendorId = CType(.Item("VendorID"), String)
+                If CType(.Item("GiftWrapAllowed"), Integer) = 1 Then
+                    p.GiftWrapAllowed = True
+                Else
+                    p.GiftWrapAllowed = False
+                End If
+                If .IsNull("ExtraShipFee") = False Then
+                    p.ExtraShipFee = CType(.Item("ExtraShipFee"), Decimal)
+                End If
+                If .IsNull("LastUpdated") = False Then
+                    p.LastUpdated = CType(.Item("LastUpdated"), DateTime)
+                End If
+                p.Keywords = CType(.Item("Keywords"), String)
+                p.TemplateName = CType(.Item("TemplateName"), String)
+                p.PreContentColumnId = CType(.Item("PreContentColumnId"), String)
+                p.PostContentColumnId = CType(.Item("PostContentColumnId"), String)
+                p.RewriteUrl = CType(.Item("RewriteUrl"), String)
+                p.GlobalProduct.SitePriceOverrideText = CType(.Item("SitePriceOverrideText"), String)
+                p.SpecialProductType = CType(.Item("SpecialProductType"), Catalog.SpecialProductTypes)
+                p.GiftCertificateCodePattern = CType(.Item("GiftCertificateCodePattern"), String)
+                p.PreTransformLongDescription = CStr(.Item("PreTransformLongDescription"))
+                If CInt(.Item("TrackInventory")) = 1 Then
+                    p.TrackInventory = True
+                Else
+                    p.TrackInventory = False
+                End If
+
+                p.OutOfStockMode = CType(.Item("OutOfStockMode"), Catalog.ProductInventoryMode)
+
+                If dr.IsNull("CustomProperties") = False Then
+                    p.CustomPropertiesFromXml(CType(dr.Item("CustomProperties"), String))
+                End If
+                'CheckForKitAndAddGroups(p)
+                If dr.IsNull("GiftWrapPrice") = False Then
+                    p.GiftWrapPrice = CType(.Item("GiftWrapPrice"), Decimal)
+                End If
+            End With
+        End If
+        'p.GlobalProduct.SetSaved(True)
+        'p.GlobalProduct._isFullObject = False       ' This will later be set to true in the case of FindByBvin and FindBySku
+        Return p
+    End Function
+
+End Class
+
+Public Class ProductSearchCriteria
+
+    Public Property ManufacturerIds() As String
+        Get
+            Return m_ManufacturerId
+        End Get
+        Set(ByVal value As String)
+            m_ManufacturerId = value
+        End Set
+    End Property
+    Private m_ManufacturerId As String
+
+    Public Property MinPrice() As Decimal
+        Get
+            Return m_MinPrice
+        End Get
+        Set(ByVal value As Decimal)
+            m_MinPrice = value
+        End Set
+    End Property
+    Private m_MinPrice As Decimal
+
+    Public Property MaxPrice() As Decimal
+        Get
+            Return m_MaxPrice
+        End Get
+        Set(ByVal value As Decimal)
+            m_MaxPrice = value
+        End Set
+    End Property
+    Private m_MaxPrice As Decimal
+
+    Public Property ProductSortOrder() As Integer
+        Get
+            Return m_ProductSortOrder
+        End Get
+        Set(ByVal value As Integer)
+            m_ProductSortOrder = value
+        End Set
+    End Property
+    Private m_ProductSortOrder As String
+
+    Public Property CategoryId() As String
+        Get
+            Return m_CategoryId
+        End Get
+        Set(ByVal value As String)
+            m_CategoryId = value
+        End Set
+    End Property
+    Private m_CategoryId As String
+
+End Class
+
+
+
+

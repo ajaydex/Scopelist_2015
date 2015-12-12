@@ -1,0 +1,2 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="BottomMenu.ascx.vb" Inherits="BVModules_Controls_BottomMenu" %>
+<asp:Literal EnableViewState="false" ID="litMain" runat="Server"></asp:Literal>

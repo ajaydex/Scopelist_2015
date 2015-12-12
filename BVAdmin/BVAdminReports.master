@@ -1,0 +1,67 @@
+<%@ Master Language="VB" CodeFile="BVAdminReports.master.vb" Inherits="BVAdmin_BVAdminReports" %>
+<%@ Register Src="ReportsMenu.ascx" TagName="ReportsMenu" TagPrefix="uc3" %>
+<%@ Register Src="../BVModules/Controls/MasterPageJavascript.ascx" TagName="MasterPageJavascript" TagPrefix="uc3" %>
+<%@ Register Src="footer.ascx" TagName="footer" TagPrefix="uc2" %>
+<%@ Register Src="Header.ascx" TagName="Header" TagPrefix="uc1" %>
+<%@ Register Src="JQueryInclude.ascx" TagName="JQueryInclude" TagPrefix="uc4" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9; IE=EmulateIE10" />
+    <title>Reports</title>
+    
+    <link href="~/BVAdmin/Styles.css" rel="stylesheet" type="text/css" />
+    <link href="~/BVAdmin/foundation.css" rel="stylesheet" type="text/css" />
+    <link href="~/BVAdmin/StylesPrint.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="~/BVAdmin/scripts/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+    <link href="~/BVAdmin/scripts/colorbox/colorbox.css" rel="stylesheet" />
+
+    <!--[if IE 7]>
+        <style rel="stylesheet" type="text/css">
+        .f-row .f-row {margin: 0;}
+        .column, .columns {padding: 0;}
+        </style>
+    <![endif]-->
+
+    <uc4:JQueryInclude ID="JQueryInclude1" runat="server" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".iframe").colorbox({ iframe: true, width: "75%", height: "75%", onClosed: function () { location.reload(true); } });
+        });
+	</script>
+
+    <asp:ContentPlaceHolder ID="headcontent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <uc1:Header ID="Header1" runat="server" />
+
+        <div id="wrapper">
+            <div class="f-row">
+                <div class="twelve columns">
+                    <h1>Reports</h1>
+                </div>
+
+                <div class="three columns printhidden">
+                    <uc3:ReportsMenu ID="ReportsMenu1" runat="server" />
+                </div>
+
+                <div class="nine columns print-full-width">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer"  class="printhidden">
+            <div class="f-row">
+                <div class="twelve columns">
+                    <uc2:footer ID="Footer1" runat="server" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
